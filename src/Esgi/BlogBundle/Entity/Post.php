@@ -224,4 +224,37 @@ class Post
     {
         return $this->category;
     }
+
+    /**
+     * Add comments
+     *
+     * @param \Esgi\BlogBundle\Entity\Comment $comments
+     * @return Category
+     */
+    public function addPost(\Esgi\BlogBundle\Entity\Comment $comments)
+    {
+        $this->comments[] = $comments;
+
+        return $this;
+    }
+
+    /**
+     * Remove comments
+     *
+     * @param \Esgi\BlogBundle\Entity\Comment $comments
+     */
+    public function removePost(\Esgi\BlogBundle\Entity\Comment $comments)
+    {
+        $this->comments->removeElement($comments);
+    }
+
+    /**
+     * Get comments
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getComments()
+    {
+        return $this->comments;
+    }
 }
