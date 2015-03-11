@@ -1,0 +1,12 @@
+services:
+    esgi.blogbundle.admin.post:
+        class: Esgi\BlogBundle\Admin\PostAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: blogbundle, label: Posts }
+        arguments: [null, Esgi\BlogBundle\Entity\Post, BlogBundle:PostAdmin]
+
+    esgi.blogbundle.admin.category:
+        class: Esgi\BlogBundle\Admin\CategoryAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: blogbundle, label: Categories }
+        arguments: [null, Esgi\BlogBundle\Entity\Category, BlogBundle:CategoryAdmin]
