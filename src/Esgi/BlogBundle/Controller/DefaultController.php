@@ -68,6 +68,9 @@ class DefaultController extends Controller
         $post = new Post();
         $form = $this->createForm(new ProposePostType(), $post);
 
+        
+
+
         if($request->getMethod() == 'POST')
         {
             $form->handleRequest($request);
