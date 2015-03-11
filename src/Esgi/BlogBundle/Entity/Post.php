@@ -229,9 +229,9 @@ class Post
      * Add comments
      *
      * @param \Esgi\BlogBundle\Entity\Comment $comments
-     * @return Category
+     * @return Post
      */
-    public function addPost(\Esgi\BlogBundle\Entity\Comment $comments)
+    public function addComment(\Esgi\BlogBundle\Entity\Comment $comments)
     {
         $this->comments[] = $comments;
 
@@ -243,7 +243,7 @@ class Post
      *
      * @param \Esgi\BlogBundle\Entity\Comment $comments
      */
-    public function removePost(\Esgi\BlogBundle\Entity\Comment $comments)
+    public function removeComment(\Esgi\BlogBundle\Entity\Comment $comments)
     {
         $this->comments->removeElement($comments);
     }
