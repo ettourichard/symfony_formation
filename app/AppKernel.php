@@ -20,9 +20,6 @@ class AppKernel extends Kernel
             new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
             new Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle(),
 
-            // Dependance
-            new FOS\UserBundle\FOSUserBundle(),
-
             //  Admin
             // The admin requires some twig functions defined in the security
             // bundle, like is_granted
