@@ -7,15 +7,24 @@ use Symfony\Component\Form\FormBuilderInterface;
 
 class ProposePostType extends AbstractType
 {
-	public function buildForm(FormBuilderInterface $builder, array $options)
-	{
-		$builder->add('title')
-				->add('body')
-				->add('save', 'submit', array('label' =>'Propose'));
-	}
+    public function buildForm(FormBuilderInterface $builder, array $options)
+    {
 
-	public function getName()
-	{
-		return 'proposeposttype';
-	}
+        
+
+        $builder->add('title', 'text')
+                ->add('body', 'textarea')
+                ->add('category', 'entity', array(
+                    'class' => 'BlogBundle:Category',
+                    'property' => 'name',
+                    'expanded' => false,
+                    'multiple' => false,
+                ))
+                ->add('save', 'submit', array('label' =>'Propose'));
+    }
+
+    public function getName()
+    {
+        return 'proposeposttype';
+    }
 }
