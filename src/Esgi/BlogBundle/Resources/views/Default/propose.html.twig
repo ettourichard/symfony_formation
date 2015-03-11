@@ -1,0 +1,18 @@
+{% extends '::base.html.twig' %}
+
+{% block title %}
+	Proposer un article
+{% endblock %}
+
+{% block body %}
+	{% for message in app.session.flashbag.get('success') %}
+		<p class="success" style="background-color: #afa">{{ message }} </p>
+	{% endfor %}
+
+	{{ form_start(form) }}
+
+	{{ form_widget(form) }}
+
+	{{ form_end(form) }}
+</form>
+{% endblock %}
