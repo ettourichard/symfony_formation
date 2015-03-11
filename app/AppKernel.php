@@ -18,6 +18,7 @@ class AppKernel extends Kernel
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
             new AppBundle\AppBundle(),
             new Esgi\BlogBundle\BlogBundle(),
+            new Esgi\UserBundle\UserBundle(),
             new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
             new Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle(),
 
