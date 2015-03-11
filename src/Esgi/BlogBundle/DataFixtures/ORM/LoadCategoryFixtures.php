@@ -14,11 +14,12 @@ class LoadCategoryFixtures extends AbstractFixture implements FixtureInterface, 
 	function load(ObjectManager $manager)
 	{
 		$i = 1;
+		$faker = \Faker\Factory::create();
 
 		while($i <= 10) 
 		{
 			$category = new Category();
-			$category->setName('Catégorie n°' . $i);
+			$category->setName($faker->word);
 
 			$manager->persist($category);
 			$this->addReference('category-' . $i, $category);
