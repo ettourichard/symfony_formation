@@ -4,6 +4,7 @@ namespace Esgi\BlogBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * Post
@@ -21,6 +22,18 @@ class Post
     * @ORM\JoinColumn(name="category_id", referencedColumnName="id")
     */
     private $category;
+
+    /**
+    * The posts associated to this category
+    * @var ArrayCollection
+    * @ORM\OneToMany(targetEntity="Comment", mappedBy="post")
+    */
+    private $comments;
+
+    public function __construct()
+    {
+        $this->comments = new ArrayCollection();
+    }
 
     /**
      * @var integer
@@ -210,5 +223,38 @@ class Post
     public function getCategory()
     {
         return $this->category;
+    }
+
+    /**
+     * Add comments
+     *
+     * @param \Esgi\BlogBundle\Entity\Comment $comments
+     * @return Post
+     */
+    public function addComment(\Esgi\BlogBundle\Entity\Comment $comments)
+    {
+        $this->comments[] = $comments;
+
+        return $this;
+    }
+
+    /**
+     * Remove comments
+     *
+     * @param \Esgi\BlogBundle\Entity\Comment $comments
+     */
+    public function removeComment(\Esgi\BlogBundle\Entity\Comment $comments)
+    {
+        $this->comments->removeElement($comments);
+    }
+
+    /**
+     * Get comments
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getComments()
+    {
+        return $this->comments;
     }
 }

@@ -8,7 +8,7 @@ use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 use Doctrine\Common\DataFixtures\AbstractFixture;
 
-class LoadPostFixtures extends AbstractFixture implements FixtureInterface
+class LoadPostFixtures extends AbstractFixture implements FixtureInterface, OrderedFixtureInterface
 {
 	function load(ObjectManager $manager)
 	{
@@ -24,6 +24,8 @@ class LoadPostFixtures extends AbstractFixture implements FixtureInterface
 			$rand = rand(1, 10);
 			$post->setCategory($this->getReference('category-' . $rand));
 			$manager->persist($post);
+            
+            $this->addReference('post-' . $i, $post);
 
 			$i++;
 		}

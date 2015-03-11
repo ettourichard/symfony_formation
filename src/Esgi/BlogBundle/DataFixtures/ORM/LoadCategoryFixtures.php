@@ -9,7 +9,7 @@ use Doctrine\Common\Persistence\ObjectManager;
 use Doctrine\Common\DataFixtures\AbstractFixture;
 
 
-class LoadCategoryFixtures extends AbstractFixture implements FixtureInterface
+class LoadCategoryFixtures extends AbstractFixture implements FixtureInterface, OrderedFixtureInterface
 {
 	function load(ObjectManager $manager)
 	{
