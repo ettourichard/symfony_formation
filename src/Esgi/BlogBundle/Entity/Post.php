@@ -4,6 +4,7 @@ namespace Esgi\BlogBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * Post
@@ -21,6 +22,18 @@ class Post
     * @ORM\JoinColumn(name="category_id", referencedColumnName="id")
     */
     private $category;
+
+    /**
+    * The posts associated to this category
+    * @var ArrayCollection
+    * @ORM\OneToMany(targetEntity="Comment", mappedBy="post")
+    */
+    private $comments;
+
+    public function __construct()
+    {
+        $this->comments = new ArrayCollection();
+    }
 
     /**
      * @var integer

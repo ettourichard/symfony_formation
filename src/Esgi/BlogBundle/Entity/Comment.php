@@ -28,6 +28,14 @@ class Comment
      */
     private $text;
 
+    /**
+    * The category of this post
+    * @var Category
+    * @ORM\ManyToOne(targetEntity="Post", inversedBy="comments")
+    * @ORM\JoinColumn(name="post_id", referencedColumnName="id")
+    */
+    private $post;
+
 
     /**
      * Get id
@@ -60,5 +68,28 @@ class Comment
     public function getText()
     {
         return $this->text;
+    }
+
+    /**
+     * Set post
+     *
+     * @param \Esgi\BlogBundle\Entity\Post $post
+     * @return Comment
+     */
+    public function setPost(\Esgi\BlogBundle\Entity\Post $post = null)
+    {
+        $this->post = $post;
+
+        return $this;
+    }
+
+    /**
+     * Get post
+     *
+     * @return \Esgi\BlogBundle\Entity\Post 
+     */
+    public function getPost()
+    {
+        return $this->post;
     }
 }
