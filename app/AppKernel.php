@@ -39,6 +39,10 @@ class AppKernel extends Kernel
             // Then add SonataAdminBundle
             new Sonata\AdminBundle\SonataAdminBundle(),
 
+            //  User
+            new Sonata\UserBundle\SonataUserBundle('FOSUserBundle'),
+            new FOS\UserBundle\FOSUserBundle(),
+            new Sonata\EasyExtendsBundle\SonataEasyExtendsBundle(),
             
             new Stfalcon\Bundle\TinymceBundle\StfalconTinymceBundle(),
         );
