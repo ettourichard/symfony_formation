@@ -65,6 +65,13 @@ class Post
      */
     private $body;
 
+    /**
+     * @var activeComment
+     *
+     * @ORM\Column(name="activeComment", type="boolean")
+     */
+    private $activeComment;
+
 
     /**
     * @var string
@@ -256,5 +263,28 @@ class Post
     public function getComments()
     {
         return $this->comments;
+    }
+
+    /**
+     * Set activeComment
+     *
+     * @param boolean $activeComment
+     * @return Post
+     */
+    public function setActiveComment($activeComment)
+    {
+        $this->activeComment = $activeComment;
+
+        return $this;
+    }
+
+    /**
+     * Get activeComment
+     *
+     * @return boolean 
+     */
+    public function getActiveComment()
+    {
+        return $this->activeComment;
     }
 }
