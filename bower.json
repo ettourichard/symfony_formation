@@ -1,0 +1,22 @@
+{
+  "name": "Symfony2-demo",
+  "version": "0.0.1",
+  "authors": [
+    "Laurent Brunet "
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "app/Resources/lib",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery" : "*",
+    "bootstrap": "*",
+    "emoji" : "*",
+    "highlightjs": "*"
+  }
+}
