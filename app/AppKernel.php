@@ -21,7 +21,7 @@ class AppKernel extends Kernel
             new Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle(),
 
             // Dependance
-            new FOS\UserBundle\FOSUserBundle(),
+            // new FOS\UserBundle\FOSUserBundle(),
 
             //  Admin
             // The admin requires some twig functions defined in the security
