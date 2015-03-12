@@ -5,6 +5,7 @@
 {% endblock %}
 
 {% block body %}
+    <h1>Add a post :</h1>
 	{% for message in app.session.flashbag.get('success') %}
 		<p class="success" style="background-color: #afa">{{ message }} </p>
 	{% endfor %}
