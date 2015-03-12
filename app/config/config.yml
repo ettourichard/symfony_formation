@@ -115,7 +115,7 @@ fos_rest:
             xml: true
             json : true
         templating_formats:
-            html: true
+            html: false
         force_redirects:
             html: true
         failed_validation: HTTP_BAD_REQUEST

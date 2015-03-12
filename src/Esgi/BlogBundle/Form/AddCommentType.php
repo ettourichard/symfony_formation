@@ -24,3 +24,4 @@ class AddCommentType extends AbstractType
     }
     
 }
+

@@ -9,9 +9,6 @@ class ProposePostType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-
-        
-
         $builder->add('title', 'text')
                 ->add('body', 'textarea')
                 ->add('category', 'entity', array(
@@ -20,7 +17,7 @@ class ProposePostType extends AbstractType
                     'expanded' => false,
                     'multiple' => false,
                 ))
-                ->add('save', 'submit', array('label' =>'Propose'));
+                ->add('save', 'submit', array('label' => 'Propose'));
     }
 
     public function getName()
