@@ -18,16 +18,6 @@ Pour installer l'ensemble des modules via composer
 php composer.phar install
 ```
 
-Pour installer l'ensemble des packages via bower et créer les assets via Grunt
-
-```
-npm install
-bower install
-grunt
-OU
-grunt watch (DEV only)
-```
-
 Pour setupper le projet
 
 ```
@@ -60,6 +50,10 @@ php app/console  doctrine:schema:update  --force
 
 ```
 npm install
+bower install
+grunt
+OU
+grunt watch (DEV only)
 
 ```
 
