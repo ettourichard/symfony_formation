@@ -10,25 +10,21 @@ class ProposePostType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder->add('title', 'text', array(
-            'attr' => array(
-                    'class' => 'form-control',
-                    'placeholder'   => 'Title', ),
+                    'attr' => array('class' => 'form-control'),
                 ))
-                ->add('body', 'genemu_tinymce')
+                ->add('body', 'genemu_tinymce', array(
+                    'attr' => array('class' => 'form-control'),
+                ))
                 ->add('category', 'entity', array(
                     'class' => 'BlogBundle:Category',
                     'property' => 'name',
                     'expanded' => false,
                     'multiple' => false,
-                    'attr' => array(
-                        'class' => 'form-control', ),
-                    )
-                )
-                ->add('save', 'submit', array(
-                    'label' => 'Propose',
-                    'attr' => array(
-                        'class' => 'form-control', ),
-                    ));
+                    'attr' => array('class' => 'form-control'),
+                ))
+                ->add('save', 'submit', array('label' => 'Propose',
+                    'attr' => array('class' => 'btn btn-success'),
+                ));
     }
 
     public function getName()
