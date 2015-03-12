@@ -10,7 +10,7 @@ class ProposePostType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder->add('title', 'text')
-                ->add('body', 'textarea')
+                ->add('body', 'genemu_tinymce')
                 ->add('category', 'entity', array(
                     'class' => 'BlogBundle:Category',
                     'property' => 'name',
