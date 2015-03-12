@@ -36,53 +36,53 @@ class DefaultController extends Controller
         );
     }
 
-     /**
-      * @Route("/new-post")
-      * @Template()
-      */
-     public function newPostAction()
-     {
-         $post = new Post();
-         $post->setTitle('Le titre du post');
-         $post->setBody('Le body body');
-         $post->setIsPublished(false);
+    /**
+     * @Route("/new-post")
+     * @Template()
+     */
+    public function newPostAction()
+    {
+        $post = new Post();
+        $post->setTitle('Le titre du post');
+        $post->setBody('Le body body');
+        $post->setIsPublished(false);
 
-         $em = $this->get('doctrine.orm.entity_manager');
-         $em->persist($post);
-         $em->flush();
+        $em = $this->get('doctrine.orm.entity_manager');
+        $em->persist($post);
+        $em->flush();
 
-         return new Response('le post '.$post->getId().' a été crée');
-     }
+        return new Response('le post '.$post->getId().' a été crée');
+    }
 
-     /**
-      * @Route("/blog/propose", name="blog_propose")
-      * @Template()
-      */
-     public function proposeAction(Request $request)
-     {
-         $post = new Post();
-         $form = $this->createForm(new ProposePostType(), $post);
+    /**
+     * @Route("/blog/propose", name="blog_propose")
+     * @Template()
+     */
+    public function proposeAction(Request $request)
+    {
+        $post = new Post();
+        $form = $this->createForm(new ProposePostType(), $post);
 
-         if ($request->getMethod() == 'POST') {
-             $form->handleRequest($request);
-             if ($form->isValid()) {
-                 $em = $this->getDoctrine()->getManager();
-                 $em->persist($post);
-                 $em->flush();
+        if ($request->getMethod() == 'POST') {
+            $form->handleRequest($request);
+            if ($form->isValid()) {
+                $em = $this->getDoctrine()->getManager();
+                $em->persist($post);
+                $em->flush();
 
-                 $this->get('session')->getFlashBag()->add(
-                    'success',
-                    'Your proposition has been saved'
-                );
+                $this->get('session')->getFlashBag()->add(
+                   'success',
+                   'Your proposition has been saved'
+               );
 
-                 return $this->redirect($this->generateUrl('blog_propose'));
-             }
-         }
+               return $this->redirect($this->generateUrl('blog_propose'));
+            }
+        }
 
-         return array(
+        return array(
             'form' => $form->createView(),
         );
-     }
+    }
 
     /**
      * Page Article complet.
