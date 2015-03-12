@@ -16,7 +16,7 @@ use Esgi\BlogBundle\Form\ProposePostType;
 class DefaultController extends Controller
 {
     /**
-     * @Route("/blog")
+     * @Route("/blog", name="blog_index")
      * @Template()
      */
     public function indexAction()
@@ -24,22 +24,11 @@ class DefaultController extends Controller
         $em = $this->get('doctrine.orm.entity_manager');
         $publishedPosts = $em->getRepository('BlogBundle:Post')->findPublicationStatus(0);
 
+
         return array(
             'posts' => $publishedPosts,
         );
     }
-
-    /**
-     * @Route("/compute/{a}/{b}")
-     * @Template()
-     */
-     public function computeAction($a, $b)
-     {
-     	return [
-     		'sum' => $this->get('esgi.computer')->addition($a, $b),
-     		'power' => $this->get('esgi.computer')->power($a)
-     	];
-     }
 
      /**
      * @Route("/new-post")
@@ -93,4 +82,30 @@ class DefaultController extends Controller
             'form' => $form->createView(),
         );
      }
+
+
+     /**
+     * Page Article complet
+     *
+     * @Route("/blog/article/{slug}", name="page_article")
+     * @Template()
+     */
+     public function articleAction($slug)
+     {
+        $em = $this->get('doctrine.orm.entity_manager');
+        $post = $em->getRepository('BlogBundle:Post')->findOneBySlug($slug);
+
+        $category = $em->getRepository('BlogBundle:Category')->find($post->getCategory());
+
+        $post_id = $post->getId();
+        $comments = $em->getRepository('BlogBundle:Comment')->findByPost($post_id);
+
+
+        return array(
+            'post'      =>  $post,
+            'category'  =>  $category,
+            'comments'  =>  $comments,
+        );
+     }
+
 }

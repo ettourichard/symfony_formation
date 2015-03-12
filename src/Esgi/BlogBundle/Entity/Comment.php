@@ -31,7 +31,7 @@ class Comment
 
     /**
     * The category of this post
-    * @var Category
+    * @var integer
     * @ORM\ManyToOne(targetEntity="Post", inversedBy="comments")
     * @ORM\JoinColumn(name="post_id", referencedColumnName="id")
     */

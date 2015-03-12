@@ -1,7 +1,7 @@
 <?php
 
 namespace Esgi\BlogBundle\Entity;
-
+    
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Doctrine\Common\Collections\ArrayCollection;
@@ -168,29 +168,6 @@ class Post
         return $this->body;
     }
 
-    /**
-     * Set slug
-     *
-     * @param string $slug
-     * @return Post
-     */
-    public function setSlug($title)
-    {
-        $this->slug = $slug;
-
-        return $this;
-    }
-
-    /**
-     * Get slug
-     *
-     * @return string 
-     */
-    public function getSlug()
-    {
-        return $slug->slug;
-    }
-
     public function getCreatedAt()
     {
         return $this->createdAt;
@@ -286,5 +263,28 @@ class Post
     public function getActiveComment()
     {
         return $this->activeComment;
+    }
+
+    /**
+     * Set slug
+     *
+     * @param string $slug
+     * @return Post
+     */
+    public function setSlug($slug)
+    {
+        $this->slug = $slug;
+
+        return $this;
+    }
+
+    /**
+     * Get slug
+     *
+     * @return string 
+     */
+    public function getSlug()
+    {
+        return $this->slug;
     }
 }
