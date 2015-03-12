@@ -116,8 +116,6 @@ fos_rest:
             json : true
         templating_formats:
             html: true
-        force_redirects:
-            html: true
         failed_validation: HTTP_BAD_REQUEST
         default_engine: twig
     routing_loader:
