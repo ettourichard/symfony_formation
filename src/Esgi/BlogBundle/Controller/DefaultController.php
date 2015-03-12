@@ -100,7 +100,7 @@ class DefaultController extends Controller
         $category = $em->getRepository('BlogBundle:Category')->find($post->getCategory());
 
         $post_id = $post->getId();
-        $comments = $em->getRepository('BlogBundle:Comment')->findByPost($post_id);
+        $comments = $em->getRepository('BlogBundle:Comment')->findAllByPost($post_id);
 
         $com = new Comment();
         $form = $this->createForm(new AddCommentType(), $com);

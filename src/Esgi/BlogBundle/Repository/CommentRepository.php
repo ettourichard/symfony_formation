@@ -6,11 +6,12 @@ use Doctrine\ORM\EntityRepository;
 
 class CommentRepository extends EntityRepository
 {
-    public function findByPost($id)
+    public function findAllByPost($id)
     {
+
         return $this->createQueryBuilder('c')
-            ->where('c.post_id = :post_id')
-            ->orderBy('p.createdAt', 'DESC')
+            ->where('c.post = :post_id')
+            ->orderBy('c.createdAt', 'DESC')
             ->setParameter('post_id', $id)
             ->getQuery()
             ->getResult();
