@@ -27,6 +27,15 @@ class Post
     private $category;
 
     /**
+     * The Author of this post
+     * @var Author
+     * @ORM\ManyToOne(targetEntity="\Esgi\UserBundle\Entity\User", inversedBy="posts")
+     * @ORM\JoinColumn(name="author_id", referencedColumnName="id")
+     * @Serializer\Exclude
+     */
+    private $author;
+
+    /**
      * The posts associated to this category
      * @var ArrayCollection
      * @ORM\OneToMany(targetEntity="Comment", mappedBy="post")
@@ -292,5 +301,28 @@ class Post
     public function getActiveComment()
     {
         return $this->activeComment;
+    }
+
+    /**
+     * Set author
+     *
+     * @param \Esgi\UserBundle\Entity\User $author
+     * @return Post
+     */
+    public function setAuthor(\Esgi\UserBundle\Entity\User $author = null)
+    {
+        $this->author = $author;
+
+        return $this;
+    }
+
+    /**
+     * Get author
+     *
+     * @return \Esgi\UserBundle\Entity\User 
+     */
+    public function getAuthor()
+    {
+        return $this->author;
     }
 }
