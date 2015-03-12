@@ -4,6 +4,7 @@ namespace Esgi\BlogBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 
 use Symfony\Component\HttpFoundation\Response;
@@ -16,7 +17,7 @@ use Esgi\BlogBundle\Form\ProposePostType;
 class DefaultController extends Controller
 {
     /**
-     * @Route("/blog")
+     * @Route("/blog", name="blog_index")
      * @Template()
      */
     public function indexAction()
@@ -24,29 +25,18 @@ class DefaultController extends Controller
         $em = $this->get('doctrine.orm.entity_manager');
         $publishedPosts = $em->getRepository('BlogBundle:Post')->findPublicationStatus(0);
 
+
         return array(
             'posts' => $publishedPosts,
         );
     }
 
     /**
-     * @Route("/compute/{a}/{b}")
-     * @Template()
-     */
-     public function computeAction($a, $b)
-     {
-     	return [
-     		'sum' => $this->get('esgi.computer')->addition($a, $b),
-     		'power' => $this->get('esgi.computer')->power($a)
-     	];
-     }
-
-     /**
      * @Route("/new-post")
      * @Template()
      */
-     public function newPostAction()
-     {
+    public function newPostAction()
+    {
         $post = new Post();
         $post->setTitle('Le titre du post');
         $post->setBody('Le body body');
@@ -57,16 +47,19 @@ class DefaultController extends Controller
         $em->flush();
 
         return new Response('le post ' . $post->getId() . ' a été crée');
-     }
+    }
 
-     /**
+    /**
      * @Route("/blog/propose", name="blog_propose")
      * @Template()
      */
-     public function proposeAction(Request $request)
-     {
+    public function proposeAction(Request $request)
+    {
         $post = new Post();
         $form = $this->createForm(new ProposePostType(), $post);
+
+        
+
 
         if($request->getMethod() == 'POST')
         {
@@ -89,5 +82,52 @@ class DefaultController extends Controller
         return array(
             'form' => $form->createView(),
         );
-     }
+    }
+
+
+    /**
+     * Page Article complet
+     *
+     * @Route("/blog/article/{slug}", name="page_article")
+     * @Template()
+     */
+    public function articleAction($slug)
+    {
+        $em = $this->get('doctrine.orm.entity_manager');
+        $post = $em->getRepository('BlogBundle:Post')->findOneBySlug($slug);
+        
+        $category = $em->getRepository('BlogBundle:Category')->find($post->getCategory());
+
+        $post_id = $post->getId();
+        $comments = $em->getRepository('BlogBundle:Comment')->findByPost($post_id);
+
+
+        return array(
+            'post'      =>  $post,
+            'category'  =>  $category,
+            'comments'  =>  $comments,
+        );
+    }
+
+    /**
+     * Page Recherche Article
+     *
+     * @Route("/blog/search", name="search_article")
+     * @Method({"POST"})
+     * @Template()
+     */
+    public function searchAction(Request $request)
+    {
+        $text = $request->request->get('text');
+
+        $em = $this->get('doctrine.orm.entity_manager');
+        $posts = $em->getRepository('BlogBundle:Post')->findLikeText($text);
+
+
+        return array(
+            'posts'      =>  $posts,
+            'text'      =>  $text,
+        );
+    }
+
 }
