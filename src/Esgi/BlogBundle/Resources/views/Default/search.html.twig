@@ -6,20 +6,20 @@
 
 {% block body %}
     <div class="page-header">
-      <h1>Articles<small>  {{ posts.getTotalItemCount }} articles</small></h1>
-      <p><a href="{{path('blog_propose')}}">Ajouter un article</a></p>
+      <h1>Recherche : "{{ text }}"</h1>
     </div>
     <div id="listPosts">
         {% for post in posts %}
             <article>
 
                 <a href="{{path('page_article', {slug: post.slug}) }}"> 
+<<<<<<< HEAD
+                    <h3>{{ post.title|replace({'%consequu%': '<bold>consequu</bold>'}) }}</h3>
+=======
                     <h3>{{ post.title }}</h3>
+>>>>>>> b902e40d4361d068dc999c46745184afe6a5289a
                 </a>
             </article>
         {% endfor %}
-    </div>
-    <div class="navigation">
-        {{ knp_pagination_render(posts) }}
     </div>
 {% endblock %}

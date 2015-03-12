@@ -4,6 +4,7 @@ namespace Esgi\BlogBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 
 use Symfony\Component\HttpFoundation\Response;
@@ -21,14 +22,21 @@ class DefaultController extends Controller
      * @Route("/blog", name="blog_index")
      * @Template()
      */
-    public function indexAction()
+    public function indexAction(Request $request)
     {
         $em = $this->get('doctrine.orm.entity_manager');
         $publishedPosts = $em->getRepository('BlogBundle:Post')->findPublicationStatus(0);
 
+        $paginator  = $this->get('knp_paginator');
+        $pagination = $paginator->paginate(
+            $publishedPosts,
+            $request->query->get('page', 1)/*page number*/,
+            10/*limit per page*/
+        );
+
 
         return array(
-            'posts' => $publishedPosts,
+            'posts' => $pagination,
         );
     }
 
@@ -86,13 +94,13 @@ class DefaultController extends Controller
      }
 
 
-     /**
+    /**
      * Page Article complet
      *
      * @Route("/blog/article/{slug}", name="page_article")
      * @Template()
      */
-     public function articleAction($slug, Request $request)
+    public function articleAction($slug, Request $request)
      {
         $em = $this->get('doctrine.orm.entity_manager');
         $post = $em->getRepository('BlogBundle:Post')->findOneBySlug($slug);
@@ -132,5 +140,26 @@ class DefaultController extends Controller
             'commentForm' => $form->createView(),
         );
      }
+
+    /**
+     * Page Recherche Article
+     *
+     * @Route("/blog/search", name="search_article")
+     * @Method({"POST"})
+     * @Template()
+     */
+    public function searchAction(Request $request)
+    {
+        $text = $request->request->get('text');
+
+        $em = $this->get('doctrine.orm.entity_manager');
+        $posts = $em->getRepository('BlogBundle:Post')->findLikeText($text);
+
+
+        return array(
+            'posts'      =>  $posts,
+            'text'      =>  $text,
+        );
+    }
 
 }
