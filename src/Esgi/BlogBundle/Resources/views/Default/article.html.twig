@@ -30,6 +30,15 @@
                     <p>No comment in this post</p>
                 {% endif %}
             </div>
+            <div class="commentForm">
+                {{ form_start(commentForm) }}
+
+                {{ form_widget(commentForm) }}
+
+                {{ form_end(commentForm) }}
+            </div>
+
+
         </section>
        
     </article>
