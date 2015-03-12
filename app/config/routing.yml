@@ -1,8 +1,10 @@
 esgi_blog:
     resource: "@BlogBundle/Controller/"
     type:     annotation
-    prefix:   /
-
+    prefix:   /{_locale}
+    requirements:
+        _locale: en|fr
+        
 app:
     resource: @AppBundle/Controller/
     type: annotation

@@ -3,8 +3,28 @@
     <file source-language="en" datatype="plaintext" original="file.ext">
         <body>
             <trans-unit id="1">
-                <source>Symfony2 is great</source>
-                <target>J'aime Symfony2</target>
+                <source>Mon Blog</source>
+                <target>My Blog</target>
+            </trans-unit>
+            <trans-unit id="2">
+                <source>Ajouter un article</source>
+                <target>Add an article</target>
+            </trans-unit>
+            <trans-unit id="3">
+                <source>Posté dans</source>
+                <target>Posted in</target>
+            </trans-unit>
+            <trans-unit id="4">
+                <source>Retour</source>
+                <target>Back</target>
+            </trans-unit>
+            <trans-unit id="5">
+                <source>Commentaires</source>
+                <target>Comments</target>
+            </trans-unit>
+            <trans-unit id="6">
+                <source>Pas de commentaires pour ce post</source>
+                <target>No comments for this post</target>
             </trans-unit>
         </body>
     </file>
