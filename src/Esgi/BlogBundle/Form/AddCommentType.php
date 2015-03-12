@@ -12,16 +12,14 @@ class AddCommentType extends AbstractType
         $builder->add('text', 'textarea',  array(
             'attr' => array(
                     'class' => 'form-control',
-                    'placeholder'   => 'Type your comment')))
+                    'placeholder'   => 'Type your comment', ), ))
                 ->add('save', 'submit', array(
-                        'label' =>'Comment', 'attr' => array(
-                            'class' => 'btn btn-default')));
+                        'label' => 'Comment', 'attr' => array(
+                            'class' => 'btn btn-default', ), ));
     }
 
     public function getName()
     {
         return 'addcommenttype';
     }
-    
 }
-
