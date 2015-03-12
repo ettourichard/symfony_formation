@@ -7,18 +7,7 @@
 {% block body %}
     <article id="article_wrapper">
         <section>
-            <h2>{{post.title}}<small></small></h2>
-            <span style="color: #999;">
-                <i class="fa fa-calendar" style="color: black;"></i> {{post.createdAt|date("d/m/Y H:i")}}&nbsp;&nbsp;&nbsp;
-                <i class="fa fa-user" style="color: black;"></i>
-                {% if post.author %}
-                    {{ post.author.username }}
-                {% else %}
-                    Anonymous
-                {% endif %}&nbsp;&nbsp;&nbsp;
-                <i class="fa fa-folder" style="color: black;"></i> 
-                {{post.category.name}}
-            </span>
+            {{ include('Partials/headArticle.html.twig', { 'post': post }) }}
             <br /><br />
             <div class="articleContent">
                 {{post.body|raw}}

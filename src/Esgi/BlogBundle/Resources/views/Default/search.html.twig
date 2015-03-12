@@ -5,16 +5,13 @@
 {% endblock %}
 
 {% block body %}
-    <div class="page-header">
-      <h1>Recherche : "{{ text }}"</h1>
-    </div>
+    <h1>Recherche : "{{ text }}"</h1>
     <div id="listPosts">
         {% for post in posts %}
             <article>
-                <a href="{{path('page_article', {slug: post.slug}) }}">
-                    <h3>{{ post.title }}</h3>
-                </a>
+                {{ include('Partials/headArticle.html.twig', { 'post': post }) }}
             </article>
         {% endfor %}
     </div>
+    <br /><br />
 {% endblock %}
