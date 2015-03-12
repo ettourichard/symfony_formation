@@ -28,7 +28,7 @@
                 <div id="commentForm" class="form-group">
                     {{form_start(commentForm)}}
 
-
+                        {{form_widget(commentForm.name)}}
                         {{form_widget(commentForm.text)}}
 
                         {{form_errors(commentForm)}}
@@ -37,7 +37,9 @@
                 {% if comments %}
                     {% for comment in comments %}
                         <div class="comment">
-                            <div class="details">{{ comment.createdAt|date("D j F Y H:i:s") }}</div>
+                            <div class="details">
+                                <span class="author">{{comment.name}}</span> <span class="date">{{ comment.createdAt|date("D j F Y H:i:s") }}</span>   
+                            </div>
                             <p>{{comment.text}}</p>
                         </div>
                     {% endfor %}

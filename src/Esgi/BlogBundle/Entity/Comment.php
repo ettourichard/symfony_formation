@@ -23,6 +23,13 @@ class Comment
      */
     private $id;
 
+        /**
+     * @var string
+     *
+     * @ORM\Column(name="name", type="text")
+     */
+    private $name;
+
     /**
      * @var string
      *
@@ -128,5 +135,28 @@ class Comment
     public function getCreatedAt()
     {
         return $this->createdAt;
+    }
+
+    /**
+     * Set name
+     *
+     * @param string $name
+     * @return Comment
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * Get name
+     *
+     * @return string 
+     */
+    public function getName()
+    {
+        return $this->name;
     }
 }
