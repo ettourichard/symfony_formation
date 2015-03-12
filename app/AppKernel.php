@@ -17,9 +17,17 @@ class AppKernel extends Kernel
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
             new AppBundle\AppBundle(),
             new Esgi\BlogBundle\BlogBundle(),
+            new Esgi\UserBundle\UserBundle(),
             new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
             new Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle(),
             new Genemu\Bundle\FormBundle\GenemuFormBundle(),
+
+            new FOS\RestBundle\FOSRestBundle(),
+            new JMS\SerializerBundle\JMSSerializerBundle(),
+            new Nelmio\ApiDocBundle\NelmioApiDocBundle(),
+
+
+            new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
 
             //  Admin
             // The admin requires some twig functions defined in the security
@@ -38,11 +46,15 @@ class AppKernel extends Kernel
 
             // Then add SonataAdminBundle
             new Sonata\AdminBundle\SonataAdminBundle(),
+
+            //  User
+            new Sonata\UserBundle\SonataUserBundle('FOSUserBundle'),
+            new FOS\UserBundle\FOSUserBundle(),
+            new Sonata\EasyExtendsBundle\SonataEasyExtendsBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
             $bundles[] = new Symfony\Bundle\DebugBundle\DebugBundle();
-            $bundles[] = new Acme\DemoBundle\AcmeDemoBundle();
             $bundles[] = new Symfony\Bundle\WebProfilerBundle\WebProfilerBundle();
             $bundles[] = new Sensio\Bundle\DistributionBundle\SensioDistributionBundle();
             $bundles[] = new Sensio\Bundle\GeneratorBundle\SensioGeneratorBundle();

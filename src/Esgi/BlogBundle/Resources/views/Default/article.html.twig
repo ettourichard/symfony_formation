@@ -1,0 +1,50 @@
+{% extends '::base.html.twig' %}
+
+{% block title %}
+    {{post.title}}
+{% endblock %}
+
+{% block body %}
+    <article>
+        <section>
+            <h2>{{post.title}}</h2>
+            <div class="details">
+                <span class="date">{{post.createdAt|date("D j F Y H:i:s")}}</span> - Posted in <span class="category">{{category.name}}</span>
+            </div>
+            <div class="articleContent">
+                {{post.body}}
+            </div>
+            <p><a href="{{path('blog_index')}}">Retour</a></p>
+        <section>
+        <section>
+            <h3>Comments :</h3>
+
+
+
+            <div id="comments">
+                <div id="commentForm" class="form-group">
+                    {{form_start(commentForm)}}
+
+                        
+                        {{form_widget(commentForm.text)}}
+                        
+                        {{form_errors(commentForm)}}
+                    {{form_end(commentForm)}}
+                </div>
+                {% if comments %}
+                    {% for comment in comments %}
+                        <div class="comment">
+                            <div class="details">{{ comment.createdAt|date("D j F Y H:i:s") }}</div>
+                            <p>{{comment.text}}</p>
+                        </div>
+                    {% endfor %}
+                {% else %}
+                    <p>No comment in this post</p>
+                {% endif %}
+            </div>
+        </section>
+       
+    </article>
+    
+{% endblock %}
+

@@ -5,9 +5,10 @@ namespace Esgi\BlogBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections;
 use Doctrine\Common\Collections\ArrayCollection;
+use JMS\Serializer\Annotation as Serializer;
 
 /**
- * Category
+ * Category.
  *
  * @ORM\Table()
  * @ORM\Entity
@@ -15,10 +16,12 @@ use Doctrine\Common\Collections\ArrayCollection;
 class Category
 {
     /**
-    * The posts associated to this category
-    * @var ArrayCollection
-    * @ORM\OneToMany(targetEntity="Post", mappedBy="category")
-    */
+     * The posts associated to this category.
+     *
+     * @var ArrayCollection
+     * @ORM\OneToMany(targetEntity="Post", mappedBy="category")
+     * @Serializer\Exclude
+     */
     private $posts;
 
     public function __construct()
@@ -42,11 +45,10 @@ class Category
      */
     private $name;
 
-
     /**
-     * Get id
+     * Get id.
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -54,9 +56,10 @@ class Category
     }
 
     /**
-     * Set name
+     * Set name.
      *
      * @param string $name
+     *
      * @return Category
      */
     public function setName($name)
@@ -67,9 +70,9 @@ class Category
     }
 
     /**
-     * Get name
+     * Get name.
      *
-     * @return string 
+     * @return string
      */
     public function getName()
     {
@@ -77,9 +80,10 @@ class Category
     }
 
     /**
-     * Add posts
+     * Add posts.
      *
      * @param \Esgi\BlogBundle\Entity\Post $posts
+     *
      * @return Category
      */
     public function addPost(\Esgi\BlogBundle\Entity\Post $posts)
@@ -90,7 +94,7 @@ class Category
     }
 
     /**
-     * Remove posts
+     * Remove posts.
      *
      * @param \Esgi\BlogBundle\Entity\Post $posts
      */
@@ -100,12 +104,17 @@ class Category
     }
 
     /**
-     * Get posts
+     * Get posts.
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getPosts()
     {
         return $this->posts;
+    }
+
+    public function __toString()
+    {
+        return $this->name;
     }
 }

@@ -6,17 +6,20 @@
 
 {% block body %}
     <div class="page-header">
-      <h1>Articles</h1>
+      <h1>Articles<small>  {{ posts.getTotalItemCount }} articles</small></h1>
+      <p><a href="{{path('blog_propose')}}">Ajouter un article</a></p>
     </div>
+    <div id="listPosts" class="form-group">
+        {% for post in posts %}
+            <article>
 
-    {% for post in posts %}
-        <article>
-            <h2>{{ post.title }}</h2>
-            <span>{{ post.body }}</span>
-            {% for comment in post.comments %}
-                <hr />
-                {{ comment.text }}
-            {% endfor %}
-        </article>
-    {% endfor %}
+                <a href="{{path('page_article', {slug: post.slug}) }}">
+                    <h3>{{ post.title }}</h3>
+                </a>
+            </article>
+        {% endfor %}
+    </div>
+    <div class="navigation">
+        {{ knp_pagination_render(posts) }}
+    </div>
 {% endblock %}

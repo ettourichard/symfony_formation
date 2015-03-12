@@ -4,12 +4,13 @@ namespace Esgi\BlogBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
+use JMS\Serializer\Annotation as Serializer;
 
 /**
- * Comment
+ * Comment.
  *
  * @ORM\Table()
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="Esgi\BlogBundle\Repository\CommentRepository")
  */
 class Comment
 {
@@ -30,26 +31,27 @@ class Comment
     private $text;
 
     /**
-    * The category of this post
-    * @var Category
-    * @ORM\ManyToOne(targetEntity="Post", inversedBy="comments")
-    * @ORM\JoinColumn(name="post_id", referencedColumnName="id")
-    */
+     * The category of this post.
+     *
+     * @var integer
+     * @ORM\ManyToOne(targetEntity="Post", inversedBy="comments")
+     * @ORM\JoinColumn(name="post_id", referencedColumnName="id")
+     * @Serializer\Exclude
+     */
     private $post;
 
     /**
-     * @var datetime $created
+     * @var datetime
      *
      * @Gedmo\Timestampable(on="create")
-     * @ORM\Column(type="date")
+     * @ORM\Column(type="datetime")
      */
     private $createdAt;
 
-
     /**
-     * Get id
+     * Get id.
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -57,9 +59,10 @@ class Comment
     }
 
     /**
-     * Set text
+     * Set text.
      *
      * @param string $text
+     *
      * @return Comment
      */
     public function setText($text)
@@ -70,9 +73,9 @@ class Comment
     }
 
     /**
-     * Get text
+     * Get text.
      *
-     * @return string 
+     * @return string
      */
     public function getText()
     {
@@ -80,9 +83,10 @@ class Comment
     }
 
     /**
-     * Set post
+     * Set post.
      *
      * @param \Esgi\BlogBundle\Entity\Post $post
+     *
      * @return Comment
      */
     public function setPost(\Esgi\BlogBundle\Entity\Post $post = null)
@@ -93,9 +97,9 @@ class Comment
     }
 
     /**
-     * Get post
+     * Get post.
      *
-     * @return \Esgi\BlogBundle\Entity\Post 
+     * @return \Esgi\BlogBundle\Entity\Post
      */
     public function getPost()
     {
@@ -103,9 +107,10 @@ class Comment
     }
 
     /**
-     * Set createdAt
+     * Set createdAt.
      *
      * @param \DateTime $createdAt
+     *
      * @return Comment
      */
     public function setCreatedAt($createdAt)
@@ -116,9 +121,9 @@ class Comment
     }
 
     /**
-     * Get createdAt
+     * Get createdAt.
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getCreatedAt()
     {

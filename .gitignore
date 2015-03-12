@@ -10,6 +10,7 @@
 /composer.lock
 /vendor/
 /web/bundles/
+/web/build/
 /.idea/
 /node_modules/
 /app/Resources/lib

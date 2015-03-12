@@ -5,13 +5,32 @@ esgi_blog:
 
 app:
     resource: @AppBundle/Controller/
-    type:     annotation
+    type: annotation
 
+# USER BUNDLE
+user:
+    resource: "@UserBundle/Resources/config/routing.yml"
+
+# SONATA ADMIN BUNDLE
 admin:
     resource: '@SonataAdminBundle/Resources/config/routing/sonata_admin.xml'
-    prefix: /admin
+    prefix:   /admin
 
 _sonata_admin:
     resource: .
     type: sonata_admin
-    prefix: /admin
+    prefix:   /admin
+
+sonata_user:
+    resource: '@SonataUserBundle/Resources/config/routing/admin_security.xml'
+    prefix:   /admin
+
+#REST 
+rest : 
+    type : rest 
+    resource : "routing_rest.yml"
+    prefix : /api
+
+NelmioApiDocBundle:
+    resource: "@NelmioApiDocBundle/Resources/config/routing.yml"
+    prefix:   /api/doc
