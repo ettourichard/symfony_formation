@@ -10,7 +10,7 @@ class PostRestController extends FOSRestController
 {
     /**
      * @ApiDoc(
-     *  description="Retrieve all Categories",
+     *  description="Retrieve all Posts",
      *  output="Esgi\BlogBundle\Entity\Post"
      * )
      */
