@@ -6,8 +6,8 @@
 
 {% block body %}
     <div class="page-header">
+      <a href="{{path('blog_propose')}}" class="pull-right btn btn-primary" style="margin-top: 10px;">Ajouter un article</a>
       <h1>Articles<small>  {{ posts.getTotalItemCount }} articles</small></h1>
-      <p><a href="{{path('blog_propose')}}">Ajouter un article</a></p>
     </div>
     <div id="listPosts" class="form-group">
         {% for post in posts %}

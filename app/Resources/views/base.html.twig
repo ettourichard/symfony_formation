@@ -24,8 +24,8 @@
 
 
 
-        <div class="container">
-            <div id="menu">
+        <div class="container" style="width: 700px;">
+            <!-- div id="menu">
                 <div class="navbar navbar-default navbar-fixed-top">
                     <div class="navbar-header">
                         <div class="navbar-brand">EsgiBlog</div>
@@ -48,11 +48,18 @@
                         </form>
                     </div> 
                 </div>
+            </div -->
+            <div style="text-align: center;margin: 40px;"><h1 style="font-size: 50px;">MON SUPER BLOG</h1>
+                <a href="{{ path('blog_index')}}">Home</a> - <a href="#">Recherche</a> - <a href="{{ path('blog_propose')}}">Propose</a>
             </div>
 
-            {{ wo_render_breadcrumbs() }}
             
             {% block body %}{% endblock %}
+            {{ wo_render_breadcrumbs() }}
+
+            <hr />
+            &copy; Mon super blog 2015
+            <br /><br />
         </div>
     </body>
 </html>
