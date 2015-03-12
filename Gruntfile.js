@@ -10,7 +10,7 @@ module.exports = function(grunt) {
             },
             my_target: {
               files: {
-                'web/build/js/app.min.js': [path + '*/*.js']
+                'web/build/js/app.min.js': [path + '*/*.js', 'app/Resources/lib/jquery/dist/jquery.min.js']
               }
             }
         },

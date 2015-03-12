@@ -81,6 +81,7 @@ class Post
      */
     private $body;
 
+
     /**
      * @var activeComment
      *
@@ -103,6 +104,8 @@ class Post
      * @ORM\Column(type="datetime")
      */
     private $createdAt;
+
+
 
     /**
      * Get id.

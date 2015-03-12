@@ -133,6 +133,12 @@ jms_serializer:
 
 nelmio_api_doc: ~
 
+
+genemu_form:
+    tinymce:
+        enabled: true
+        theme: simple
+
 knp_paginator:
     page_range: 10                      # default page range used in pagination control
     default_options:
