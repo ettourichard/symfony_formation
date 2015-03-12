@@ -100,7 +100,7 @@ class Post
      * @var datetime $created
      *
      * @Gedmo\Timestampable(on="create")
-     * @ORM\Column(type="date")
+     * @ORM\Column(type="datetime")
      */
     private $createdAt;
 

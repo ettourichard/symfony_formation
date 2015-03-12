@@ -11,7 +11,7 @@ use JMS\Serializer\Annotation as Serializer;
  * Comment
  *
  * @ORM\Table()
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="Esgi\BlogBundle\Repository\CommentRepository")
  */
 class Comment
 {
@@ -44,7 +44,7 @@ class Comment
      * @var datetime $created
      *
      * @Gedmo\Timestampable(on="create")
-     * @ORM\Column(type="date")
+     * @ORM\Column(type="datetime")
      */
     private $createdAt;
 
@@ -114,7 +114,6 @@ class Comment
     public function setCreatedAt($createdAt)
     {
         $this->createdAt = $createdAt;
-
         return $this;
     }
 

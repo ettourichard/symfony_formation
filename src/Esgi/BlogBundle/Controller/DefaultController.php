@@ -94,13 +94,13 @@ class DefaultController extends Controller
      }
 
 
-     /**
+    /**
      * Page Article complet
      *
      * @Route("/blog/article/{slug}", name="page_article")
      * @Template()
      */
-     public function articleAction($slug, Request $request)
+    public function articleAction($slug, Request $request)
      {
         $em = $this->get('doctrine.orm.entity_manager');
         $post = $em->getRepository('BlogBundle:Post')->findOneBySlug($slug);
@@ -108,7 +108,7 @@ class DefaultController extends Controller
         $category = $em->getRepository('BlogBundle:Category')->find($post->getCategory());
 
         $post_id = $post->getId();
-        $comments = $em->getRepository('BlogBundle:Comment')->findByPost($post_id);
+        $comments = $em->getRepository('BlogBundle:Comment')->findAllByPost($post_id);
 
         $com = new Comment();
         $form = $this->createForm(new AddCommentType(), $com);

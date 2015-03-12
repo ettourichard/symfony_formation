@@ -9,7 +9,7 @@
         <section>
             <h2>{{post.title}}</h2>
             <div class="details">
-                <span class="date">{{post.createdAt|date("d-M-y")}}</span> - Posted in <span class="category">{{category.name}}</span>
+                <span class="date">{{post.createdAt|date("D j F Y H:i:s")}}</span> - Posted in <span class="category">{{category.name}}</span>
             </div>
             <div class="articleContent">
                 {{post.body}}
@@ -22,7 +22,7 @@
                 {% if comments %}
                     {% for comment in comments %}
                         <div class="comment">
-                            <div class="details">{{ comment.createdAt|date("d-M-y") }}</div>
+                            <div class="details">{{ comment.createdAt|date("D j F Y H:i:s") }}</div>
                             <p>{{comment.text}}</p>
                         </div>
                     {% endfor %}
