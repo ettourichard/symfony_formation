@@ -4,6 +4,7 @@ namespace Esgi\BlogBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 
 use Symfony\Component\HttpFoundation\Response;
@@ -30,12 +31,12 @@ class DefaultController extends Controller
         );
     }
 
-     /**
+    /**
      * @Route("/new-post")
      * @Template()
      */
-     public function newPostAction()
-     {
+    public function newPostAction()
+    {
         $post = new Post();
         $post->setTitle('Le titre du post');
         $post->setBody('Le body body');
@@ -46,14 +47,14 @@ class DefaultController extends Controller
         $em->flush();
 
         return new Response('le post ' . $post->getId() . ' a été crée');
-     }
+    }
 
-     /**
+    /**
      * @Route("/blog/propose", name="blog_propose")
      * @Template()
      */
-     public function proposeAction(Request $request)
-     {
+    public function proposeAction(Request $request)
+    {
         $post = new Post();
         $form = $this->createForm(new ProposePostType(), $post);
 
@@ -81,20 +82,20 @@ class DefaultController extends Controller
         return array(
             'form' => $form->createView(),
         );
-     }
+    }
 
 
-     /**
+    /**
      * Page Article complet
      *
      * @Route("/blog/article/{slug}", name="page_article")
      * @Template()
      */
-     public function articleAction($slug)
-     {
+    public function articleAction($slug)
+    {
         $em = $this->get('doctrine.orm.entity_manager');
         $post = $em->getRepository('BlogBundle:Post')->findOneBySlug($slug);
-
+        
         $category = $em->getRepository('BlogBundle:Category')->find($post->getCategory());
 
         $post_id = $post->getId();
@@ -106,6 +107,27 @@ class DefaultController extends Controller
             'category'  =>  $category,
             'comments'  =>  $comments,
         );
-     }
+    }
+
+    /**
+     * Page Recherche Article
+     *
+     * @Route("/blog/search", name="search_article")
+     * @Method({"POST"})
+     * @Template()
+     */
+    public function searchAction(Request $request)
+    {
+        $text = $request->request->get('text');
+
+        $em = $this->get('doctrine.orm.entity_manager');
+        $posts = $em->getRepository('BlogBundle:Post')->findLikeText($text);
+
+
+        return array(
+            'posts'      =>  $posts,
+            'text'      =>  $text,
+        );
+    }
 
 }
