@@ -74,10 +74,10 @@ class DefaultController extends Controller
         $form = $this->createForm(new ProposePostType(), $post);
         $post->setActiveComment(true);
 
-       $id_user = $this->getUser();
-        if($id_user)
+        $id_user = $this->getUser();
+        if ($id_user) {
             $post->setAuthor($id_user);
-
+        }
 
         if ($request->getMethod() == 'POST') {
             $form->handleRequest($request);
@@ -123,15 +123,16 @@ class DefaultController extends Controller
         // Category name recuperation
         $category = $em->getRepository('BlogBundle:Category')->find($post->getCategory());
 
-        // Recuperation of all comments about this post 
+        // Recuperation of all comments about this post
         $post_id = $post->getId();
         $comments = $em->getRepository('BlogBundle:Comment')->findAllByPost($post_id);
 
         //Username recuperation
-        if($post->getAuthor())
+        if ($post->getAuthor()) {
             $user = $em->getRepository('UserBundle:User')->find($post->getAuthor());
-        else
+        } else {
             $user = ['username' =>  'Anonymous'];
+        }
 
         // Comment form
         $com = new Comment();

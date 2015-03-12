@@ -23,7 +23,7 @@ class Comment
      */
     private $id;
 
-        /**
+    /**
      * @var string
      *
      * @ORM\Column(name="name", type="text")
@@ -138,9 +138,10 @@ class Comment
     }
 
     /**
-     * Set name
+     * Set name.
      *
      * @param string $name
+     *
      * @return Comment
      */
     public function setName($name)
@@ -151,9 +152,9 @@ class Comment
     }
 
     /**
-     * Get name
+     * Get name.
      *
-     * @return string 
+     * @return string
      */
     public function getName()
     {
