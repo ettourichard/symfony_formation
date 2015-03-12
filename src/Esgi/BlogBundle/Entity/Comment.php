@@ -5,6 +5,8 @@ namespace Esgi\BlogBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 
+use JMS\Serializer\Annotation as Serializer;
+
 /**
  * Comment
  *
@@ -34,6 +36,7 @@ class Comment
     * @var Category
     * @ORM\ManyToOne(targetEntity="Post", inversedBy="comments")
     * @ORM\JoinColumn(name="post_id", referencedColumnName="id")
+    * @Serializer\Exclude
     */
     private $post;
 

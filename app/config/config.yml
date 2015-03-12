@@ -130,3 +130,5 @@ jms_serializer:
             BlogBundle:
                 namespace_prefix: "Esgi\\BlogBundle"
                 path: "@BlogBundle/Resources/config/serializer/blog"
+
+nelmio_api_doc: ~

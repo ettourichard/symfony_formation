@@ -10,8 +10,17 @@ use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 use Symfony\Component\HttpFoundation\Request;
 use FOS\RestBundle\Controller\FOSRestController;
 
+use Nelmio\ApiDocBundle\Annotation\ApiDoc;
+
 class PostRestController extends FOSRestController
 {
+
+    /**
+     * @ApiDoc(
+     *  description="Retrieve all Categories",
+     *  output="Esgi\BlogBundle\Entity\Post"
+     * )
+     */
     public function getPostsAction()
     {
         $em = $this->getDoctrine()->getManager();

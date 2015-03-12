@@ -23,6 +23,7 @@ class AppKernel extends Kernel
 
             new FOS\RestBundle\FOSRestBundle(),
             new JMS\SerializerBundle\JMSSerializerBundle(),
+            new Nelmio\ApiDocBundle\NelmioApiDocBundle(),
 
             //  Admin
             // The admin requires some twig functions defined in the security
