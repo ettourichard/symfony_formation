@@ -85,7 +85,7 @@ class Post
     /**
      * @var activeComment
      *
-     * @ORM\Column(name="activeComment", type="boolean")
+     * @ORM\Column(name="activeComment", type="boolean", nullable=true, options={"default" = true})
      */
     private $activeComment;
 
