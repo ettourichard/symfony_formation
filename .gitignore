@@ -7,8 +7,10 @@
 /app/phpunit.xml
 /bin/
 /composer.phar
+/composer.lock
 /vendor/
 /web/bundles/
+/web/build/
 /.idea/
 /node_modules/
 /app/Resources/lib

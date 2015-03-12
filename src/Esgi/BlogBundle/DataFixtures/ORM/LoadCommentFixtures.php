@@ -14,11 +14,12 @@ class LoadCommentFixtures extends AbstractFixture implements FixtureInterface, O
     function load(ObjectManager $manager)
     {
         $i = 1;
+        $faker = \Faker\Factory::create();
 
         while($i <= 30) 
         {
             $comment = new Comment();
-            $comment->setText('Texte du commentaire n°' . $i);
+            $comment->setText($faker->text($maxNbChars = 200));
 
             $rand = rand(1, 20);
             $comment->setPost($this->getReference('post-' . $rand));

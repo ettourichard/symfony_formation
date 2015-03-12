@@ -46,6 +46,8 @@ doctrine:
         #   2. Uncomment database_path in parameters.yml.dist
         #   3. Uncomment next line:
         #     path:     "%database_path%"
+        types:
+            json: Sonata\Doctrine\Types\JsonType
 
     orm:
         auto_generate_proxy_classes: "%kernel.debug%"
@@ -69,12 +71,64 @@ stof_doctrine_extensions:
 sonata_admin:
     title: Blog Admin
 
+# FOS User Bundle
+fos_user:
+    db_driver: orm
+    firewall_name: main
+    user_class: Esgi\UserBundle\Entity\User
+    group:
+        group_class: Esgi\UserBundle\Entity\Group
+
+# SONATA User Bundle
+sonata_user:
+    security_acl: false
+    manager_type: orm
+    class:
+        user: Esgi\UserBundle\Entity\User
+        group: Esgi\UserBundle\Entity\Group
+    impersonating:
+        route: homepage
+    admin:
+        user:
+            class: Esgi\UserBundle\Admin\UserAdmin
+            controller: SonataAdminBundle:CRUD
+            translation: SonataUserBundle
+
 sonata_block:
     default_contexts: [cms]
     blocks:
         sonata.admin.block.admin_list:
-            contexts:   [admin]
+            contexts: [admin]
+        sonata.block.service.text: ~
+        sonata.block.service.action: ~
+        sonata.block.service.rss: ~
+        sonata.admin.block.search_result: ~
+        sonata.user.block.menu: ~
 
-        sonata.block.service.text:
-        sonata.block.service.action:
-        sonata.block.service.rss:
+fos_rest:
+    param_fetcher_listener: true
+    body_listener: true
+    format_listener: true
+    view:
+        view_response_listener: 'force'
+        formats:
+            xml: true
+            json : true
+        templating_formats:
+            html: true
+        force_redirects:
+            html: true
+        failed_validation: HTTP_BAD_REQUEST
+        default_engine: twig
+    routing_loader:
+        default_format: json
+
+jms_serializer:
+    metadata:
+        auto_detection: true
+        directories:
+            BlogBundle:
+                namespace_prefix: "Esgi\\BlogBundle"
+                path: "@BlogBundle/Resources/config/serializer/blog"
+
+nelmio_api_doc: ~
