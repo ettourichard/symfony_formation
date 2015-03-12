@@ -72,6 +72,7 @@ class DefaultController extends Controller
 
         $post = new Post();
         $form = $this->createForm(new ProposePostType(), $post);
+        $post->setActiveComment(true);
 
         if ($request->getMethod() == 'POST') {
             $form->handleRequest($request);

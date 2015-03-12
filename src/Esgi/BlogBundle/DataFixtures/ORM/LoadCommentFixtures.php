@@ -18,6 +18,7 @@ class LoadCommentFixtures extends AbstractFixture implements FixtureInterface, O
         while ($i <= 30) {
             $comment = new Comment();
             $comment->setText($faker->text($maxNbChars = 200));
+            $comment->setName($faker->text($maxNbChars = 30));
 
             $rand = rand(1, 20);
             $comment->setPost($this->getReference('post-'.$rand));

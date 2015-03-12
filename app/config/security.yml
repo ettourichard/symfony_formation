@@ -61,3 +61,4 @@ security:
         - { path: ^/, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/profile, role: IS_AUTHENTICATED_FULLY }
         - { path: ^/deconnexion$, role: IS_AUTHENTICATED_FULLY }
+        - { path: ^/blog/propose, role: IS_AUTHENTICATED_FULLY }
