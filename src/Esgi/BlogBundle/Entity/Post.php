@@ -6,6 +6,8 @@ use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Doctrine\Common\Collections\ArrayCollection;
 
+use JMS\Serializer\Annotation as Serializer;
+
 /**
  * Post
  *
@@ -16,18 +18,20 @@ class Post
 {
 
     /**
-    * The category of this post
-    * @var Category
-    * @ORM\ManyToOne(targetEntity="Category", inversedBy="posts")
-    * @ORM\JoinColumn(name="category_id", referencedColumnName="id")
-    */
+     * The category of this post
+     * @var Category
+     * @ORM\ManyToOne(targetEntity="Category", inversedBy="posts")
+     * @ORM\JoinColumn(name="category_id", referencedColumnName="id")
+     * @Serializer\Exclude
+     */
     private $category;
 
     /**
-    * The posts associated to this category
-    * @var ArrayCollection
-    * @ORM\OneToMany(targetEntity="Comment", mappedBy="post")
-    */
+     * The posts associated to this category
+     * @var ArrayCollection
+     * @ORM\OneToMany(targetEntity="Comment", mappedBy="post")
+     * @Serializer\Expose
+     */
     private $comments;
 
     public function __construct()
@@ -41,6 +45,7 @@ class Post
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
+     * @Serializer\Expose
      */
     private $id;
 
@@ -48,6 +53,7 @@ class Post
      * @var string
      *
      * @ORM\Column(name="title", type="string", length=255)
+     * @Serializer\Expose
      */
     private $title;
 

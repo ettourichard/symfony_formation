@@ -21,6 +21,8 @@ class PostAdmin extends Admin
         $formMapper
             ->add('title')
             ->add('body')
+            ->add('category', 'sonata_type_model_autocomplete', array('property'=>'name'))
+            ->add('isPublished')
         ;
     }
 
@@ -29,6 +31,7 @@ class PostAdmin extends Admin
         $datagridMapper
             ->add('title')
             ->add('body')
+            ->add('isPublished')
         ;
     }
 
@@ -51,6 +54,7 @@ class PostAdmin extends Admin
         $showMapper
             ->add('title')
             ->add('body')
+            ->add('category')
         ;
     }
 

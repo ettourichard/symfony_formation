@@ -17,8 +17,13 @@ class AppKernel extends Kernel
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
             new AppBundle\AppBundle(),
             new Esgi\BlogBundle\BlogBundle(),
+            new Esgi\UserBundle\UserBundle(),
             new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
             new Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle(),
+
+            new FOS\RestBundle\FOSRestBundle(),
+            new JMS\SerializerBundle\JMSSerializerBundle(),
+            new Nelmio\ApiDocBundle\NelmioApiDocBundle(),
 
             //  Admin
             // The admin requires some twig functions defined in the security
@@ -38,6 +43,10 @@ class AppKernel extends Kernel
             // Then add SonataAdminBundle
             new Sonata\AdminBundle\SonataAdminBundle(),
 
+            //  User
+            new Sonata\UserBundle\SonataUserBundle('FOSUserBundle'),
+            new FOS\UserBundle\FOSUserBundle(),
+            new Sonata\EasyExtendsBundle\SonataEasyExtendsBundle(),
             
             new Stfalcon\Bundle\TinymceBundle\StfalconTinymceBundle(),
         );
