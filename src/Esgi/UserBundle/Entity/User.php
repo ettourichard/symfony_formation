@@ -5,11 +5,10 @@ namespace Esgi\UserBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Sonata\UserBundle\Entity\BaseUser;
 use Doctrine\Common\Collections\ArrayCollection;
-
 use JMS\Serializer\Annotation as Serializer;
 
 /**
- * User
+ * User.
  *
  * @ORM\Table(name="fos_user")
  * @ORM\Entity(repositoryClass="Esgi\UserBundle\Repository\UserRepository")
@@ -41,7 +40,8 @@ class User extends BaseUser
     protected $city;
 
     /**
-     * The posts associated to this user
+     * The posts associated to this user.
+     *
      * @var ArrayCollection
      * @ORM\OneToMany(targetEntity="\Esgi\BlogBundle\Entity\Post", mappedBy="author")
      * @Serializer\Exclude
@@ -70,9 +70,9 @@ class User extends BaseUser
     }
 
     /**
-     * Get id
+     * Get id.
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -80,9 +80,10 @@ class User extends BaseUser
     }
 
     /**
-     * Add posts
+     * Add posts.
      *
      * @param \Esgi\BlogBundle\Entity\Post $posts
+     *
      * @return User
      */
     public function addPost(\Esgi\BlogBundle\Entity\Post $posts)
@@ -93,7 +94,7 @@ class User extends BaseUser
     }
 
     /**
-     * Remove posts
+     * Remove posts.
      *
      * @param \Esgi\BlogBundle\Entity\Post $posts
      */
@@ -103,9 +104,9 @@ class User extends BaseUser
     }
 
     /**
-     * Get posts
+     * Get posts.
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getPosts()
     {

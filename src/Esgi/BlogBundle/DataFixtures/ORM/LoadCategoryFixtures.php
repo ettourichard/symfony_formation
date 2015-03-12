@@ -8,30 +8,28 @@ use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 use Doctrine\Common\DataFixtures\AbstractFixture;
 
-
 class LoadCategoryFixtures extends AbstractFixture implements FixtureInterface, OrderedFixtureInterface
 {
-	function load(ObjectManager $manager)
-	{
-		$i = 1;
-		$faker = \Faker\Factory::create();
+    public function load(ObjectManager $manager)
+    {
+        $i = 1;
+        $faker = \Faker\Factory::create();
 
-		while($i <= 10) 
-		{
-			$category = new Category();
-			$category->setName($faker->word);
+        while ($i <= 10) {
+            $category = new Category();
+            $category->setName($faker->word);
 
-			$manager->persist($category);
-			$this->addReference('category-' . $i, $category);
+            $manager->persist($category);
+            $this->addReference('category-'.$i, $category);
 
-			$i++;
-		}
+            $i++;
+        }
 
-		$manager->flush();
-	}
+        $manager->flush();
+    }
 
-	public function getOrder()
-	{
-		return 1;
-	}
+    public function getOrder()
+    {
+        return 1;
+    }
 }

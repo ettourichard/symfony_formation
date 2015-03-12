@@ -10,17 +10,14 @@ use Doctrine\Common\DataFixtures\AbstractFixture;
 use Symfony\Component\DependencyInjection\ContainerAwareInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
-
 class LoadUserFixtures extends AbstractFixture implements FixtureInterface, OrderedFixtureInterface, ContainerAwareInterface
 {
-
     /**
      * @var ContainerInterface
      */
     private $container;
 
-
-    function load(ObjectManager $manager)
+    public function load(ObjectManager $manager)
     {
         $userManager = $this->container->get('fos_user.user_manager');
 
@@ -38,14 +35,13 @@ class LoadUserFixtures extends AbstractFixture implements FixtureInterface, Orde
         $i = 1;
         $faker = \Faker\Factory::create();
 
-        while($i <= 10)
-        {
+        while ($i <= 10) {
             $user = $userManager->createUser();
             $word = $faker->word;
-            $user->setUsername($word .  '-' . $i);
+            $user->setUsername($word.'-'.$i);
             //$user->setRoles(array('ROLE_USER'));
             $user->setPlainPassword($word);
-            $user->setEmail($word . '@user.fr');
+            $user->setEmail($word.'@user.fr');
             $user->setEnabled(true);
 
             $userManager->updateUser($user, true);
@@ -74,5 +70,4 @@ class LoadUserFixtures extends AbstractFixture implements FixtureInterface, Orde
     {
         $this->container = $container;
     }
-
 }

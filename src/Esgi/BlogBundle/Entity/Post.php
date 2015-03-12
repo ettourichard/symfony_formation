@@ -1,24 +1,23 @@
 <?php
 
 namespace Esgi\BlogBundle\Entity;
-    
+
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Doctrine\Common\Collections\ArrayCollection;
-
 use JMS\Serializer\Annotation as Serializer;
 
 /**
- * Post
+ * Post.
  *
  * @ORM\Table(name="post")
  * @ORM\Entity(repositoryClass="Esgi\BlogBundle\Repository\PostRepository")
  */
 class Post
 {
-
     /**
-     * The category of this post
+     * The category of this post.
+     *
      * @var Category
      * @ORM\ManyToOne(targetEntity="Category", inversedBy="posts")
      * @ORM\JoinColumn(name="category_id", referencedColumnName="id")
@@ -27,7 +26,8 @@ class Post
     private $category;
 
     /**
-     * The Author of this post
+     * The Author of this post.
+     *
      * @var Author
      * @ORM\ManyToOne(targetEntity="\Esgi\UserBundle\Entity\User", inversedBy="posts")
      * @ORM\JoinColumn(name="author_id", referencedColumnName="id")
@@ -36,7 +36,8 @@ class Post
     private $author;
 
     /**
-     * The posts associated to this category
+     * The posts associated to this category.
+     *
      * @var ArrayCollection
      * @ORM\OneToMany(targetEntity="Comment", mappedBy="post")
      * @Serializer\Expose
@@ -87,17 +88,16 @@ class Post
      */
     private $activeComment;
 
-
     /**
-    * @var string
-    *
-    * @Gedmo\Slug(fields={"title"}, updatable=false, separator="-")
-    * @ORM\Column(name="slug", type="string", length=255)
-    */
+     * @var string
+     *
+     * @Gedmo\Slug(fields={"title"}, updatable=false, separator="-")
+     * @ORM\Column(name="slug", type="string", length=255)
+     */
     private $slug;
 
     /**
-     * @var datetime $created
+     * @var datetime
      *
      * @Gedmo\Timestampable(on="create")
      * @ORM\Column(type="datetime")
@@ -105,9 +105,9 @@ class Post
     private $createdAt;
 
     /**
-     * Get id
+     * Get id.
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -115,9 +115,10 @@ class Post
     }
 
     /**
-     * Set title
+     * Set title.
      *
      * @param string $title
+     *
      * @return Post
      */
     public function setTitle($title)
@@ -128,9 +129,9 @@ class Post
     }
 
     /**
-     * Get title
+     * Get title.
      *
-     * @return string 
+     * @return string
      */
     public function getTitle()
     {
@@ -138,9 +139,10 @@ class Post
     }
 
     /**
-     * Set isPublished
+     * Set isPublished.
      *
      * @param boolean $isPublished
+     *
      * @return Post
      */
     public function setIsPublished($isPublished)
@@ -151,9 +153,9 @@ class Post
     }
 
     /**
-     * Get isPublished
+     * Get isPublished.
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getIsPublished()
     {
@@ -161,9 +163,10 @@ class Post
     }
 
     /**
-     * Set body
+     * Set body.
      *
      * @param string $body
+     *
      * @return Post
      */
     public function setBody($body)
@@ -174,9 +177,9 @@ class Post
     }
 
     /**
-     * Get body
+     * Get body.
      *
-     * @return string 
+     * @return string
      */
     public function getBody()
     {
@@ -189,9 +192,10 @@ class Post
     }
 
     /**
-     * Set createdAt
+     * Set createdAt.
      *
      * @param \DateTime $createdAt
+     *
      * @return Post
      */
     public function setCreatedAt($createdAt)
@@ -202,9 +206,10 @@ class Post
     }
 
     /**
-     * Set category
+     * Set category.
      *
      * @param \Esgi\BlogBundle\Entity\Category $category
+     *
      * @return Post
      */
     public function setCategory(\Esgi\BlogBundle\Entity\Category $category = null)
@@ -215,9 +220,9 @@ class Post
     }
 
     /**
-     * Get category
+     * Get category.
      *
-     * @return \Esgi\BlogBundle\Entity\Category 
+     * @return \Esgi\BlogBundle\Entity\Category
      */
     public function getCategory()
     {
@@ -225,9 +230,10 @@ class Post
     }
 
     /**
-     * Add comments
+     * Add comments.
      *
      * @param \Esgi\BlogBundle\Entity\Comment $comments
+     *
      * @return Post
      */
     public function addComment(\Esgi\BlogBundle\Entity\Comment $comments)
@@ -238,7 +244,7 @@ class Post
     }
 
     /**
-     * Remove comments
+     * Remove comments.
      *
      * @param \Esgi\BlogBundle\Entity\Comment $comments
      */
@@ -248,9 +254,9 @@ class Post
     }
 
     /**
-     * Get comments
+     * Get comments.
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getComments()
     {
@@ -258,9 +264,10 @@ class Post
     }
 
     /**
-     * Set activeComment
+     * Set activeComment.
      *
      * @param boolean $activeComment
+     *
      * @return Post
      */
     public function setActiveComment($activeComment)
@@ -271,9 +278,9 @@ class Post
     }
 
     /**
-     * Get activeComment
+     * Get activeComment.
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getActiveComment()
     {
@@ -281,9 +288,10 @@ class Post
     }
 
     /**
-     * Set author
+     * Set author.
      *
      * @param \Esgi\UserBundle\Entity\User $author
+     *
      * @return Post
      */
     public function setAuthor(\Esgi\UserBundle\Entity\User $author = null)
@@ -292,9 +300,9 @@ class Post
     }
 
     /**
-     * Get author
+     * Get author.
      *
-     * @return \Esgi\UserBundle\Entity\User 
+     * @return \Esgi\UserBundle\Entity\User
      */
     public function getAuthor()
     {
@@ -302,9 +310,10 @@ class Post
     }
 
     /**
-     * Set slug
+     * Set slug.
      *
      * @param string $slug
+     *
      * @return Post
      */
     public function setSlug($slug)
@@ -315,9 +324,9 @@ class Post
     }
 
     /**
-     * Get slug
+     * Get slug.
      *
-     * @return string 
+     * @return string
      */
     public function getSlug()
     {
