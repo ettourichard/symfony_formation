@@ -133,4 +133,25 @@ class DefaultController extends Controller
         );
      }
 
+    /**
+     * Page Recherche Article
+     *
+     * @Route("/blog/search", name="search_article")
+     * @Method({"POST"})
+     * @Template()
+     */
+    public function searchAction(Request $request)
+    {
+        $text = $request->request->get('text');
+
+        $em = $this->get('doctrine.orm.entity_manager');
+        $posts = $em->getRepository('BlogBundle:Post')->findLikeText($text);
+
+
+        return array(
+            'posts'      =>  $posts,
+            'text'      =>  $text,
+        );
+    }
+
 }

@@ -15,4 +15,15 @@ class PostRepository extends EntityRepository
 			->getQuery()
 			->getResult();
 	}
+
+    public function findLikeText($text)
+    {
+        return $this->createQueryBuilder('p')
+            ->where('p.title LIKE :text')
+            ->orWhere('p.body LIKE :text')
+            ->orderBy('p.createdAt', 'DESC')
+            ->setParameter('text', '%'.$text.'%')
+            ->getQuery()
+            ->getResult();
+    }
 }
