@@ -102,10 +102,12 @@ class DefaultController extends Controller
      */
     public function articleAction($slug, Request $request)
     {
-        //génération du fil d'ariane
+        //Breadcrumbs creation
         $breadcrumbs = $this->get("white_october_breadcrumbs");
         $breadcrumbs->addItem("Home", $this->get("router")->generate("blog_index"));
+        $breadcrumbs->addItem("Article");
 
+        //Post recuperation
         $em = $this->get('doctrine.orm.entity_manager');
         $post = $em->getRepository('BlogBundle:Post')->findOneBySlug($slug);
 
@@ -113,12 +115,17 @@ class DefaultController extends Controller
             'slug' => $slug,
 
         ));
-
+        // Category name recuperation
         $category = $em->getRepository('BlogBundle:Category')->find($post->getCategory());
 
+        // Recuperation of all comments about this post 
         $post_id = $post->getId();
         $comments = $em->getRepository('BlogBundle:Comment')->findAllByPost($post_id);
 
+        //Username recuperation
+        $user = $em->getRepository('UserBundle:User')->find($post->getAuthor());
+
+        // Comment form
         $com = new Comment();
         $form = $this->createForm(new AddCommentType(), $com);
 
@@ -140,10 +147,11 @@ class DefaultController extends Controller
         }
 
         return array(
-            'post'      =>  $post,
-            'category'  =>  $category,
-            'comments'  =>  $comments,
-            'commentForm' => $form->createView(),
+            'post'          =>  $post,
+            'category'      =>  $category,
+            'user'          =>  $user,
+            'comments'      =>  $comments,
+            'commentForm'   => $form->createView(),
         );
     }
 

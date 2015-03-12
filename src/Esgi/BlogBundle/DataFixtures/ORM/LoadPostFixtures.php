@@ -21,7 +21,8 @@ class LoadPostFixtures extends AbstractFixture implements FixtureInterface, Orde
             $post->setBody($faker->text($maxNbChars = 400));
             $post->setIsPublished($i%2);
             $post->setActiveComment(true);
-
+            $rand = rand(1, 10);
+            $post->setAuthor($this->getReference('user-'.$rand));
             $rand = rand(1, 10);
             $post->setCategory($this->getReference('category-'.$rand));
             $manager->persist($post);
@@ -36,6 +37,6 @@ class LoadPostFixtures extends AbstractFixture implements FixtureInterface, Orde
 
     public function getOrder()
     {
-        return 2;
+        return 4;
     }
 }

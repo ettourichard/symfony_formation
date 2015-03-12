@@ -48,6 +48,8 @@ class LoadUserFixtures extends AbstractFixture implements FixtureInterface, Orde
 
             $manager->persist($user);
 
+            $this->addReference('user-'.$i, $user);
+
             $i++;
         }
 
@@ -56,7 +58,7 @@ class LoadUserFixtures extends AbstractFixture implements FixtureInterface, Orde
 
     public function getOrder()
     {
-        return 5;
+        return 1;
     }
 
     /**

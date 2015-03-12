@@ -5,15 +5,18 @@
 {% endblock %}
 
 {% block body %}
-    <article>
+    <article id="article_wrapper">
         <section>
             <h2>{{post.title}}</h2>
             <div class="details">
-                <span class="date">{{post.createdAt|date("D j F Y H:i:s")}}</span> - Posted in <span class="category">{{category.name}}</span>
+                Posted in <span class="category">{{category.name}}</span> by <span class="author">{{user.username}}</span>
+                <br />
+                <span class="date">{{post.createdAt|date("D j F Y H:i:s")}}</span>
             </div>
             <div class="articleContent">
                 {{post.body}}
             </div>
+            <br />
             <p><a href="{{path('blog_index')}}">Retour</a></p>
         <section>
         <section>
