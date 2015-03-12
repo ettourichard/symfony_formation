@@ -19,6 +19,7 @@ class AppKernel extends Kernel
             new Esgi\BlogBundle\BlogBundle(),
             new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
             new Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle(),
+            new Genemu\Bundle\FormBundle\GenemuFormBundle(),
 
             //  Admin
             // The admin requires some twig functions defined in the security
@@ -37,9 +38,6 @@ class AppKernel extends Kernel
 
             // Then add SonataAdminBundle
             new Sonata\AdminBundle\SonataAdminBundle(),
-
-            
-            new Stfalcon\Bundle\TinymceBundle\StfalconTinymceBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

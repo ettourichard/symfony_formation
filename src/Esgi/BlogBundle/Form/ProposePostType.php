@@ -8,12 +8,10 @@ use Symfony\Component\Form\FormBuilderInterface;
 class ProposePostType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
-    {
+    {    
 
-        
-
-        $builder->add('title', 'text')
-                ->add('body', 'textarea')
+        $builder->add('title', 'text')                
+                ->add('body', 'genemu_tinymce')
                 ->add('category', 'entity', array(
                     'class' => 'BlogBundle:Category',
                     'property' => 'name',
@@ -21,6 +19,7 @@ class ProposePostType extends AbstractType
                     'multiple' => false,
                 ))
                 ->add('save', 'submit', array('label' =>'Propose'));
+
     }
 
     public function getName()

@@ -3,20 +3,22 @@
     <head>
         <meta charset="UTF-8" />
         <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+
+        <script src="/js/jquery-1.11.2.js"></script>
+        <script src="/js/jqueryui-v1.11.4.min.js"></script>
+        
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-
-        <!-- Optional theme -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
 
         <!-- Latest compiled and minified JavaScript -->
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 
-
         <link rel="stylesheet" href="/build/css/app.css">
-        <script src="/build/js/app.js"></script>
+        {% block javascripts %}{% endblock %}
+
+        {% block stylesheets %}{% endblock %}
     </head>
     <body>
 
@@ -25,7 +27,7 @@
               <div class="container-fluid">
                 <div class="navbar-header">
                   <a class="navbar-brand" href="#">
-                    <img alt="Brand" src="...">
+                    <img alt="Brand" src="#">
                   </a>
                   <form class="navbar-form navbar-left" role="search">
                       <div class="form-group">
@@ -38,7 +40,6 @@
             </nav>
             
             {% block body %}{% endblock %}
-            {% block javascripts %}{% endblock %}
         </div>
     </body>
 </html>
