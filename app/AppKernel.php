@@ -52,7 +52,7 @@ class AppKernel extends Kernel
             new FOS\UserBundle\FOSUserBundle(),
             new Sonata\EasyExtendsBundle\SonataEasyExtendsBundle(),
 
-            new Stfalcon\Bundle\TinymceBundle\StfalconTinymceBundle(),
+            //new Stfalcon\Bundle\TinymceBundle\StfalconTinymceBundle(),
             new WhiteOctober\BreadcrumbsBundle\WhiteOctoberBreadcrumbsBundle(),
         );
 
