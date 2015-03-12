@@ -21,10 +21,8 @@ class DefaultController extends Controller
      */
     public function indexAction(Request $request)
     {
-
-        $breadcrumbs=$this->get("white_october_breadcrumbs");
+        $breadcrumbs = $this->get("white_october_breadcrumbs");
         $breadcrumbs->addItem("Home", $this->get("router")->generate("blog_index"));
-
 
         $em = $this->get('doctrine.orm.entity_manager');
         $publishedPosts = $em->getRepository('BlogBundle:Post')->findPublicationStatus(0);
@@ -47,8 +45,7 @@ class DefaultController extends Controller
      */
     public function newPostAction()
     {
-
-        $breadcrumbs=$this->get("white_october_breadcrumbs");
+        $breadcrumbs = $this->get("white_october_breadcrumbs");
         $breadcrumbs->addItem("Home", $this->get("router")->generate("blog_index"));
 
         $post = new Post();
@@ -69,7 +66,7 @@ class DefaultController extends Controller
      */
     public function proposeAction(Request $request)
     {
-        $breadcrumbs=$this->get("white_october_breadcrumbs");
+        $breadcrumbs = $this->get("white_october_breadcrumbs");
         $breadcrumbs->addItem("Home", $this->get("router")->generate("blog_index"));
         $breadcrumbs->addItem("Article Form", $this->get("router")->generate("blog_propose"));
 
@@ -108,14 +105,13 @@ class DefaultController extends Controller
         //génération du fil d'ariane
         $breadcrumbs = $this->get("white_october_breadcrumbs");
         $breadcrumbs->addItem("Home", $this->get("router")->generate("blog_index"));
-        
 
         $em = $this->get('doctrine.orm.entity_manager');
         $post = $em->getRepository('BlogBundle:Post')->findOneBySlug($slug);
-        
+
         $breadcrumbs->addRouteItem($post->getTitle(), "page_article", array(
             'slug' => $slug,
-            
+
         ));
 
         $category = $em->getRepository('BlogBundle:Category')->find($post->getCategory());
@@ -161,12 +157,12 @@ class DefaultController extends Controller
      */
     public function searchAction(Request $request)
     {
-        $breadcrumbs=$this->get("white_october_breadcrumbs");
+        $breadcrumbs = $this->get("white_october_breadcrumbs");
         $breadcrumbs->addItem("Home", $this->get("router")->generate("blog_index"));
 
         $text = $request->request->get('text');
 
-        $breadcrumbs->addItem("Search results for : ". $text, "");
+        $breadcrumbs->addItem("Search results for : ".$text, "");
 
         $em = $this->get('doctrine.orm.entity_manager');
         $posts = $em->getRepository('BlogBundle:Post')->findLikeText($text);
