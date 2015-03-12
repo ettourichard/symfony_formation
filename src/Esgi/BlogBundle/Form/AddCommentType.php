@@ -10,12 +10,11 @@ class AddCommentType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder->add('text', 'textarea')
-                ->add('save', 'submit', array('label' =>'Comment'));
+                ->add('save', 'submit', array('label' => 'Comment'));
     }
 
     public function getName()
     {
         return 'addcommenttype';
     }
-    
 }
