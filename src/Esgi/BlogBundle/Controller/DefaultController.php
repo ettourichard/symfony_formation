@@ -74,6 +74,11 @@ class DefaultController extends Controller
         $form = $this->createForm(new ProposePostType(), $post);
         $post->setActiveComment(true);
 
+       $id_user = $this->getUser();
+        if($id_user)
+            $post->setAuthor($id_user);
+
+
         if ($request->getMethod() == 'POST') {
             $form->handleRequest($request);
             if ($form->isValid()) {
@@ -114,7 +119,6 @@ class DefaultController extends Controller
 
         $breadcrumbs->addRouteItem($post->getTitle(), "page_article", array(
             'slug' => $slug,
-
         ));
         // Category name recuperation
         $category = $em->getRepository('BlogBundle:Category')->find($post->getCategory());
@@ -124,7 +128,10 @@ class DefaultController extends Controller
         $comments = $em->getRepository('BlogBundle:Comment')->findAllByPost($post_id);
 
         //Username recuperation
-        $user = $em->getRepository('UserBundle:User')->find($post->getAuthor());
+        if($post->getAuthor())
+            $user = $em->getRepository('UserBundle:User')->find($post->getAuthor());
+        else
+            $user = ['username' =>  'Anonymous'];
 
         // Comment form
         $com = new Comment();

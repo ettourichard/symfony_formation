@@ -14,7 +14,7 @@
                 <span class="date">{{post.createdAt|date("D j F Y H:i:s")}}</span>
             </div>
             <div class="articleContent">
-                {{post.body}}
+                {{post.body|raw}}
             </div>
             <br />
             <p><a href="{{path('blog_index')}}">Retour</a></p>
