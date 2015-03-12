@@ -10,33 +10,32 @@ use Doctrine\Common\DataFixtures\AbstractFixture;
 
 class LoadPostFixtures extends AbstractFixture implements FixtureInterface, OrderedFixtureInterface
 {
-	function load(ObjectManager $manager)
-	{
-		$i = 1;
+    public function load(ObjectManager $manager)
+    {
+        $i = 1;
         $faker = \Faker\Factory::create();
 
-		while($i <= 100) 
-		{
-			$post = new Post();
-			$post->setTitle($faker->word);
-			$post->setBody($faker->text($maxNbChars = 400));
-			$post->setIsPublished($i%2);
-			$post->setActiveComment(true);
+        while ($i <= 100) {
+            $post = new Post();
+            $post->setTitle($faker->word);
+            $post->setBody($faker->text($maxNbChars = 400));
+            $post->setIsPublished($i%2);
+            $post->setActiveComment(true);
 
-			$rand = rand(1, 10);
-			$post->setCategory($this->getReference('category-' . $rand));
-			$manager->persist($post);
-            
-            $this->addReference('post-' . $i, $post);
+            $rand = rand(1, 10);
+            $post->setCategory($this->getReference('category-'.$rand));
+            $manager->persist($post);
 
-			$i++;
-		}
+            $this->addReference('post-'.$i, $post);
 
-		$manager->flush();
-	}
+            $i++;
+        }
 
-	public function getOrder()
-	{
-		return 2;
-	}
+        $manager->flush();
+    }
+
+    public function getOrder()
+    {
+        return 2;
+    }
 }

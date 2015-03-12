@@ -10,17 +10,14 @@ use Doctrine\Common\DataFixtures\AbstractFixture;
 use Symfony\Component\DependencyInjection\ContainerAwareInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
-
 class LoadGroupFixtures extends AbstractFixture implements FixtureInterface, OrderedFixtureInterface, ContainerAwareInterface
 {
-
     /**
      * @var ContainerInterface
      */
     private $container;
 
-
-    function load(ObjectManager $manager)
+    public function load(ObjectManager $manager)
     {
         $groupAdmin = new Group('Administrateurs');
         $groupMod = new Group('Modérateurs');

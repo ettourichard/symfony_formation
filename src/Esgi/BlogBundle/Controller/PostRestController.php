@@ -2,19 +2,12 @@
 
 namespace Esgi\BlogBundle\Controller;
 
-use FOS\RestBundle\Controller\Annotations as Rest;
-
 use FOS\RestBundle\Controller\Annotations\View;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\Security\Core\Exception\AccessDeniedException;
-use Symfony\Component\HttpFoundation\Request;
 use FOS\RestBundle\Controller\FOSRestController;
-
 use Nelmio\ApiDocBundle\Annotation\ApiDoc;
 
 class PostRestController extends FOSRestController
 {
-
     /**
      * @ApiDoc(
      *  description="Retrieve all Categories",

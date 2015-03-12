@@ -6,7 +6,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Sonata\UserBundle\Entity\BaseGroup;
 
 /**
- * Group
+ * Group.
  *
  * @ORM\Table(name="fos_group")
  * @ORM\Entity

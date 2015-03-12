@@ -12,7 +12,7 @@ class PostRestControllerTest extends WebTestCase
 
         $crawler = $client->request('GET', '/api/posts');
         $data = json_decode($client->getResponse()->getContent(), true);
-        
+
         $this->assertTrue(isset($data[0]['id']));
     }
 }

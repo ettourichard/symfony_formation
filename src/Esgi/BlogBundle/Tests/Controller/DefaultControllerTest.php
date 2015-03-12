@@ -13,13 +13,13 @@ class DefaultControllerTest extends WebTestCase
         $crawler = $client->request('GET', '/blog');
 
         $nb = $crawler->filter('html:contains("Articles")')->count();
-        
+
         $this->assertTrue($nb > 0);
 
         $crawler = $client->request('GET', '/blog?page=1');
 
         $nb = $crawler->filter('html:contains("Articles")')->count();
-        
+
         $this->assertTrue($nb > 0);
     }
 
@@ -30,7 +30,7 @@ class DefaultControllerTest extends WebTestCase
         $crawler = $client->request('GET', '/blog/article/enim');
 
         $nb = $crawler->filter('html:contains("Comments")')->count();
-        
+
         $this->assertTrue($nb > 0);
     }
 
@@ -41,7 +41,7 @@ class DefaultControllerTest extends WebTestCase
         $crawler = $client->request('POST', '/blog/search', array('text' => 'el'));
 
         $nb = $crawler->filter('html:contains("Recherche")')->count();
-        
+
         $this->assertTrue($nb > 0);
     }
 }
