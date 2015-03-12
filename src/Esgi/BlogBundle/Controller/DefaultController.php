@@ -10,8 +10,10 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 
 use Esgi\BlogBundle\Entity\Post;
+use Esgi\BlogBundle\Entity\Comment;
 
 use Esgi\BlogBundle\Form\ProposePostType;
+use Esgi\BlogBundle\Form\AddCommentType;
 
 class DefaultController extends Controller
 {
@@ -90,7 +92,7 @@ class DefaultController extends Controller
      * @Route("/blog/article/{slug}", name="page_article")
      * @Template()
      */
-     public function articleAction($slug)
+     public function articleAction($slug, Request $request)
      {
         $em = $this->get('doctrine.orm.entity_manager');
         $post = $em->getRepository('BlogBundle:Post')->findOneBySlug($slug);
@@ -100,11 +102,34 @@ class DefaultController extends Controller
         $post_id = $post->getId();
         $comments = $em->getRepository('BlogBundle:Comment')->findByPost($post_id);
 
+        $com = new Comment();
+        $form = $this->createForm(new AddCommentType(), $com);
+
+        if($request->getMethod() == 'POST')
+        {
+
+            $com->setPost($post);
+            $form->handleRequest($request);
+            if($form->isValid())
+            {
+                $em = $this->getDoctrine()->getManager();
+                $em->persist($com);
+                $em->flush();
+
+                $this->get('session')->getFlashBag()->add(
+                    'success',
+                    'Your comment has been posted'
+                );
+
+                return $this->redirect($this->generateUrl('page_article', array('slug' => $post->getSlug())));
+            }
+        }
 
         return array(
             'post'      =>  $post,
             'category'  =>  $category,
             'comments'  =>  $comments,
+            'commentForm' => $form->createView(),
         );
      }
 
