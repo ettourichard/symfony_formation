@@ -1,5 +1,5 @@
 
-# Symfony Fuse #
+# Symfony Project #
 
 
 ## GITHUB ##
