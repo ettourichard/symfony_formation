@@ -1,0 +1,7 @@
+category:
+    type: rest
+    resource: Esgi\BlogBundle\Controller\CategoryRestController
+
+post:
+    type: rest
+    resource: Esgi\BlogBundle\Controller\PostRestController

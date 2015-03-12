@@ -6,6 +6,8 @@ use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections;
 use Doctrine\Common\Collections\ArrayCollection;
 
+use JMS\Serializer\Annotation as Serializer;
+
 /**
  * Category
  *
@@ -15,10 +17,11 @@ use Doctrine\Common\Collections\ArrayCollection;
 class Category
 {
     /**
-    * The posts associated to this category
-    * @var ArrayCollection
-    * @ORM\OneToMany(targetEntity="Post", mappedBy="category")
-    */
+     * The posts associated to this category
+     * @var ArrayCollection
+     * @ORM\OneToMany(targetEntity="Post", mappedBy="category")
+     * @Serializer\Exclude
+     */
     private $posts;
 
     public function __construct()
