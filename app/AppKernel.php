@@ -25,6 +25,9 @@ class AppKernel extends Kernel
             new JMS\SerializerBundle\JMSSerializerBundle(),
             new Nelmio\ApiDocBundle\NelmioApiDocBundle(),
 
+
+            new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
+
             //  Admin
             // The admin requires some twig functions defined in the security
             // bundle, like is_granted

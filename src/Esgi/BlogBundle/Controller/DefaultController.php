@@ -22,14 +22,21 @@ class DefaultController extends Controller
      * @Route("/blog", name="blog_index")
      * @Template()
      */
-    public function indexAction()
+    public function indexAction(Request $request)
     {
         $em = $this->get('doctrine.orm.entity_manager');
         $publishedPosts = $em->getRepository('BlogBundle:Post')->findPublicationStatus(0);
 
+        $paginator  = $this->get('knp_paginator');
+        $pagination = $paginator->paginate(
+            $publishedPosts,
+            $request->query->get('page', 1)/*page number*/,
+            10/*limit per page*/
+        );
+
 
         return array(
-            'posts' => $publishedPosts,
+            'posts' => $pagination,
         );
     }
 
