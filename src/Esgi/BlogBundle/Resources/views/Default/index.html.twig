@@ -9,7 +9,7 @@
       <h1>Articles<small>  {{ posts.getTotalItemCount }} articles</small></h1>
       <p><a href="{{path('blog_propose')}}">Ajouter un article</a></p>
     </div>
-    <div id="listPosts">
+    <div id="listPosts" class="form-group">
         {% for post in posts %}
             <article>
 

@@ -18,7 +18,19 @@
         <section>
         <section>
             <h3>Comments :</h3>
+
+
+
             <div id="comments">
+                <div id="commentForm" class="form-group">
+                    {{form_start(commentForm)}}
+
+                        
+                        {{form_widget(commentForm.text)}}
+                        
+                        {{form_errors(commentForm)}}
+                    {{form_end(commentForm)}}
+                </div>
                 {% if comments %}
                     {% for comment in comments %}
                         <div class="comment">
@@ -30,15 +42,6 @@
                     <p>No comment in this post</p>
                 {% endif %}
             </div>
-            <div class="commentForm">
-                {{ form_start(commentForm) }}
-
-                {{ form_widget(commentForm) }}
-
-                {{ form_end(commentForm) }}
-            </div>
-
-
         </section>
        
     </article>
