@@ -14,7 +14,7 @@
                 <span class="date">{{post.createdAt|date("D j F Y H:i:s")}}</span>
             </div>
             <div class="articleContent">
-                {{post.body}}
+                {{post.body|raw}}
             </div>
             <br />
             <p><a href="{{path('blog_index')}}">Retour</a></p>
@@ -38,7 +38,7 @@
                     {% for comment in comments %}
                         <div class="comment">
                             <div class="details">
-                                <span class="author">{{comment.name}}</span> <span class="date">{{ comment.createdAt|date("D j F Y H:i:s") }}</span>   
+                                <span class="author">{{comment.name}}</span> <span class="date">{{ comment.createdAt|date("D j F Y H:i:s") }}</span>
                             </div>
                             <p>{{comment.text}}</p>
                         </div>

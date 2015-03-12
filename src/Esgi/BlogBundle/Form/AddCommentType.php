@@ -12,7 +12,7 @@ class AddCommentType extends AbstractType
         $builder->add('name', 'text', array(
             'attr' => array(
                     'class' => 'form-control',
-                    'placeholder'   => 'Your name')))
+                    'placeholder'   => 'Your name', ), ))
                 ->add('text', 'textarea',  array(
             'attr' => array(
                     'class' => 'form-control',
