@@ -13,13 +13,15 @@
                     <h2>{{ post.title }}</h2>
                 </a>
                 <span style="color: #999;">
-                <i class="fa fa-calendar" style="color: black;"></i> {{post.createdAt|date("d/m/Y H:i")}}&nbsp;&nbsp;&nbsp;
-                <i class="fa fa-user" style="color: black;"></i>
-                {% if post.author %}
-                    {{ post.author.username }}
-                {% else %}
-                    Anonymous
-                {% endif %}
+                    <i class="fa fa-calendar" style="color: black;"></i> {{post.createdAt|date("d/m/Y H:i")}}&nbsp;&nbsp;&nbsp;
+                    <i class="fa fa-user" style="color: black;"></i>
+                    {% if post.author %}
+                        {{ post.author.username }}
+                    {% else %}
+                        Anonymous
+                    {% endif %}&nbsp;&nbsp;&nbsp;
+                    <i class="fa fa-folder" style="color: black;"></i> 
+                    {{post.category.name}}
                 </span>
             </article>
         {% endfor %}
