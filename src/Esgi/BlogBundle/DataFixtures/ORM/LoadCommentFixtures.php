@@ -31,6 +31,6 @@ class LoadCommentFixtures extends AbstractFixture implements FixtureInterface, O
 
     public function getOrder()
     {
-        return 3;
+        return 5;
     }
 }

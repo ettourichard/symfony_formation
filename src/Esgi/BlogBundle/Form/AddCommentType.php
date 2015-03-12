@@ -14,7 +14,7 @@ class AddCommentType extends AbstractType
                     'class' => 'form-control',
                     'placeholder'   => 'Type your comment', ), ))
                 ->add('save', 'submit', array(
-                        'label' => 'Comment', 'attr' => array(
+                        'label' => 'Publish', 'attr' => array(
                             'class' => 'btn btn-default', ), ));
     }
 
