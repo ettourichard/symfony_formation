@@ -1,28 +1,27 @@
 <?xml version="1.0"?>
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
-    <file source-language="en" datatype="plaintext" original="file.ext">
+    <file source-language="en" datatype="plaintext" original="navigation.fr.xlf">
         <body>
             <trans-unit id="1">
                 <source>lien.homepage</source>
-                <target>Accueil</target>
+                <target>Homepage</target>
             </trans-unit>
             <trans-unit id="2">
                 <source>lien.search</source>
-                <target>Recherche</target>
+                <target>Search</target>
             </trans-unit>
             <trans-unit id="3">
                 <source>lien.propose</source>
-                <target>Proposer</target>
+                <target>Propose</target>
             </trans-unit>
             <trans-unit id="4">
                 <source>nom.blog</source>
-                <target>Mon super blog</target>
+                <target>My super blog</target>
             </trans-unit>
             <trans-unit id="5">
                 <source>h1.homepage</source>
-                <target>MON SUPER BLOG</target>
+                <target>MY SUPER BLOG</target>
             </trans-unit>
-            
         </body>
     </file>
 </xliff>

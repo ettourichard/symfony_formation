@@ -50,8 +50,8 @@
                     </div> 
                 </div>
             </div -->
-            <div style="text-align: center;margin: 40px;"><h1 style="font-size: 50px;">MON SUPER BLOG</h1>
-                <a href="{{ path('blog_index')}}">{% trans %}Accueil{% endtrans %}</a> - <a href="#">{% trans %}Recherche{% endtrans %}</a> - <a href="{{ path('blog_propose')}}">{% trans %}Proposer{% endtrans %}</a>
+            <div style="text-align: center;margin: 40px;"><h1 style="font-size: 50px;">{% trans %}h1.homepage{% endtrans %}</h1>
+                <a href="{{ path('blog_index')}}">{% trans %}lien.homepage{% endtrans %}</a> - <a href="#">{% trans %}lien.search{% endtrans %}</a> - <a href="{{ path('blog_propose')}}">{% trans %}lien.propose{% endtrans %}</a>
             </div>
 
             
@@ -59,7 +59,7 @@
             {{ wo_render_breadcrumbs() }}
 
             <hr />
-            &copy; {% trans %}Mon super blog{% endtrans %} 2015
+            &copy; {% trans %}nom.blog{% endtrans %} 2015
             <br /><br />
         </div>
     </body>
