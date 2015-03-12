@@ -85,23 +85,3 @@ vendor/phpunit/phpunit/phpunit -c app
 ```
 php php-cs-fixer fix . --config=sf23
 ```
-
-### Configure your webserver
-#### Apache
-
-You can create a virtual host 
-
-```
-    <VirtualHost *:80>
-        ServerName <host>
-        DocumentRoot <pathtomyprovence>
-        SetEnv APPLICATION_ENV "development"
-        <Directory <pathtomyprovence>>
-            DirectoryIndex app.php
-            Options Indexes FollowSymLinks Includes ExecCGI
-            AllowOverride All
-            Order allow,deny
-            Allow from all
-        </Directory>
-    </VirtualHost>
-```
