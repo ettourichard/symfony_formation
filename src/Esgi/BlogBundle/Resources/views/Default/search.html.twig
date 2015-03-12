@@ -11,13 +11,8 @@
     <div id="listPosts">
         {% for post in posts %}
             <article>
-
                 <a href="{{path('page_article', {slug: post.slug}) }}">
-<<<<<<< HEAD
-                    <h3>{{ post.title|replace({'%consequu%': '<bold>consequu</bold>'}) }}</h3>
-=======
                     <h3>{{ post.title }}</h3>
->>>>>>> b902e40d4361d068dc999c46745184afe6a5289a
                 </a>
             </article>
         {% endfor %}
