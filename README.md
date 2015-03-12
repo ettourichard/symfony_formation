@@ -44,6 +44,11 @@ php app/console fos:user:activate user
 
 ```
 
+Pour ajouter les Data Fixtures
+
+```
+php app/console  doctrine:fixture:load
+```
 
 Pour updater le projet
 
