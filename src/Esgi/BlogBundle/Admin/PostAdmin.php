@@ -20,7 +20,9 @@ class PostAdmin extends Admin
         $formMapper
             ->add('title')
             ->add('body')
+            ->add('author')
             ->add('category', 'sonata_type_model_autocomplete', array('property' => 'name'))
+            ->add('activeComment')
             ->add('isPublished')
         ;
     }
@@ -30,6 +32,8 @@ class PostAdmin extends Admin
         $datagridMapper
             ->add('title')
             ->add('body')
+            ->add('author')
+            ->add('activeComment')
             ->add('isPublished')
         ;
     }
@@ -53,6 +57,8 @@ class PostAdmin extends Admin
         $showMapper
             ->add('title')
             ->add('body')
+            ->add('author')
+            ->add('activeComment')
             ->add('category')
         ;
     }

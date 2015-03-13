@@ -1,62 +1,62 @@
 <?xml version="1.0"?>
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
-    <file source-language="fr" datatype="plaintext" original="file.ext">
+    <file source-language="en" datatype="plaintext" original="messages.fr.xlf">
         <body>
             <trans-unit id="1">
                 <source>lien.homepage</source>
-                <target>Accueil</target>
+                <target>Página principal</target>
             </trans-unit>
             <trans-unit id="2">
                 <source>lien.search</source>
-                <target>Recherche</target>
+                <target>Buscar</target>
             </trans-unit>
             <trans-unit id="3">
                 <source>lien.propose</source>
-                <target>Proposer</target>
+                <target>Proponer</target>
             </trans-unit>
             <trans-unit id="4">
                 <source>nom.blog</source>
-                <target>Mon super blog</target>
+                <target>Mi Súper Blog</target>
             </trans-unit>
             <trans-unit id="5">
                 <source>h1.homepage</source>
-                <target>MON SUPER BLOG</target>
+                <target>MI SÚPER BLOG</target>
             </trans-unit>
             <trans-unit id="6">
                 <source>titre.comments</source>
-                <target>Commentaires</target>
+                <target>Comentarios</target>
             </trans-unit>
             <trans-unit id="7">
                 <source>nocomment.message</source>
-                <target>Pas de commentaire sur ce post</target>
+                <target>No hay comentarios en este post</target>
             </trans-unit>
             <trans-unit id="8">
                 <source>ajout.article</source>
-                <target>Ajouter un article</target>
+                <target>Añadir un artículo</target>
             </trans-unit>
             <trans-unit id="9">
                 <source>article.propose</source>
-                <target>Proposer un article</target>
+                <target>Proponer un artículo</target>
             </trans-unit>
             <trans-unit id="10">
                 <source>bouton.submit</source>
-                <target>Soumettre</target>
+                <target>Enviar</target>
             </trans-unit>
             <trans-unit id="11">
                 <source>lien.login</source>
-                <target>Se connecter</target>
+                <target>conectar</target>
             </trans-unit>
             <trans-unit id="12">
                 <source>lien.logout</source>
-                <target>Se déconnecter</target>
+                <target>desconectar</target>
             </trans-unit>
              <trans-unit id="13">
                 <source>comment.activeOrNot</source>
-                <target>Les commentaires ont été désactivés sur cet article.</target>
+                <target>Los comentarios han sido deshabilitados en esta página</target>
             </trans-unit>
             <trans-unit id="14">
                 <source>name.form</source>
-                <target>Votre nom</target>
+                <target>Su nombre</target>
             </trans-unit>
         </body>
     </file>

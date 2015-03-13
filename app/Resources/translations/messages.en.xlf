@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
-    <file source-language="en" datatype="plaintext" original="navigation.fr.xlf">
+    <file source-language="en" datatype="plaintext" original="messages.fr.xlf">
         <body>
             <trans-unit id="1">
                 <source>lien.homepage</source>
@@ -43,12 +43,20 @@
                 <target>Sign in</target>
             </trans-unit>
             <trans-unit id="11">
+                <source>bouton.submit</source>
+                <target>Submit</target>
+            </trans-unit>
+            <trans-unit id="12">
                 <source>lien.logout</source>
                 <target>Logout</target>
             </trans-unit>
-            <trans-unit id="12">
+            <trans-unit id="13">
                 <source>comment.activeOrNot</source>
                 <target>Comments are disabled on this page</target>
+            </trans-unit>
+            <trans-unit id="14">
+                <source>name.form</source>
+                <target>Your name</target>
             </trans-unit>
         </body>
     </file>
