@@ -25,7 +25,7 @@ class DefaultController extends Controller
         $breadcrumbs->addItem("Home", $this->get("router")->generate("blog_index"));
 
         $em = $this->get('doctrine.orm.entity_manager');
-        $publishedPosts = $em->getRepository('BlogBundle:Post')->findPublicationStatus(0);
+        $publishedPosts = $em->getRepository('BlogBundle:Post')->findPublicationStatus(1);
 
         $paginator  = $this->get('knp_paginator');
         $pagination = $paginator->paginate(
