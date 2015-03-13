@@ -58,6 +58,18 @@
                 <source>name.form</source>
                 <target>Votre nom</target>
             </trans-unit>
+            <trans-unit id="15">
+                <source>message.error</source>
+                <target>Une erreur est survenue</target>
+            </trans-unit>
+            <trans-unit id="16">
+                <source>error404.message</source>
+                <target>La page que vous recherchez n'existe pas. Vous pouvez retourner vers l'Accueil pour avoir la liste des actualités ou en chercher une à partir du lien Recherche.</target>
+            </trans-unit>
+            <trans-unit id="17">
+                <source>authentification.titre</source>
+                <target>Authentification</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

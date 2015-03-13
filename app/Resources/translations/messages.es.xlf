@@ -44,11 +44,11 @@
             </trans-unit>
             <trans-unit id="11">
                 <source>lien.login</source>
-                <target>conectar</target>
+                <target>Conectar</target>
             </trans-unit>
             <trans-unit id="12">
                 <source>lien.logout</source>
-                <target>desconectar</target>
+                <target>Desconectar</target>
             </trans-unit>
              <trans-unit id="13">
                 <source>comment.activeOrNot</source>
@@ -57,6 +57,18 @@
             <trans-unit id="14">
                 <source>name.form</source>
                 <target>Su nombre</target>
+            </trans-unit>
+            <trans-unit id="15">
+                <source>message.error</source>
+                <target>Se ha producido un error</target>
+            </trans-unit>
+            <trans-unit id="16">
+                <source>error404.message</source>
+                <target>La página solicitada no existe. Usted puede regresar a la página principal para la lista de noticias o buscar uno desde el enlace de búsqueda.</target>
+            </trans-unit>
+            <trans-unit id="17">
+                <source>authentification.titre</source>
+                <target>Autenticación</target>
             </trans-unit>
         </body>
     </file>

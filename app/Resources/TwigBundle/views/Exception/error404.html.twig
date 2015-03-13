@@ -1,13 +1,13 @@
 {% extends '::base.html.twig' %}
 
 {% block title %}
-    Une erreur est survenue : {{ status_text }}
+    {% trans %}message.error{% endtrans %} : {{ status_text }}
 {% endblock %}
 
 {% block body %}
 
-    <h1>Oups! Une erreur est survenue</h1>
+    <h1>Oops! {% trans %}message.error{% endtrans %}</h1>
     <img src="http://placekitten.com/g/200/300" alt="Kitten"/>
-    <p>La page que vous recherchez n'existe pas. Vous pouvez retourner vers l'Accueil pour avoir la liste des actualités ou en chercher une à partir du lien Recherche.</p>
+    <p>{% trans %}error404.message{% endtrans %}</p>
 
 {% endblock %}
