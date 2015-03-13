@@ -5,6 +5,11 @@ esgi_blog:
     requirements:
         _locale: fr|en|es
 
+home:
+    resource: "@AppBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
 app:
     resource: @AppBundle/Controller/
     type: annotation
