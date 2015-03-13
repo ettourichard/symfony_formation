@@ -37,7 +37,7 @@ class LoadUserFixtures extends AbstractFixture implements FixtureInterface, Orde
 
         while ($i <= 10) {
             $user = $userManager->createUser();
-            $word = $faker->word;
+            $word = $faker->unique()->word;
             $user->setUsername($word.'-'.$i);
             //$user->setRoles(array('ROLE_USER'));
             $user->setPlainPassword($word);

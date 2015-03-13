@@ -17,7 +17,7 @@ class LoadPostFixtures extends AbstractFixture implements FixtureInterface, Orde
 
         while ($i <= 100) {
             $post = new Post();
-            $post->setTitle($faker->word);
+            $post->setTitle($faker->sentence(6));
             $post->setBody($faker->text($maxNbChars = 400));
             $post->setIsPublished($i%2);
             $post->setActiveComment(true);
