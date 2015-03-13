@@ -15,6 +15,7 @@ use Esgi\BlogBundle\Form\AddCommentType;
 
 class DefaultController extends Controller
 {
+
     /**
      * @Route("/blog", name="blog_index")
      * @Template()
