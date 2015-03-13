@@ -10,6 +10,7 @@
             {{ include('Partials/headArticle.html.twig', { 'post': post }) }}
             <br /><br />
             <div class="articleContent">
+                <img src="{{ '/' ~ post.getWebPath() }}"/>
                 {{post.body|raw}}
             </div>
         <section>

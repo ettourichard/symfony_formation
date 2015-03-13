@@ -24,6 +24,7 @@ class PostAdmin extends Admin
             ->add('category', 'sonata_type_model_autocomplete', array('property' => 'name'))
             ->add('activeComment')
             ->add('isPublished')
+            ->add('file', 'file')
         ;
     }
 
@@ -56,6 +57,7 @@ class PostAdmin extends Admin
     {
         $showMapper
             ->add('title')
+            ->add('file')
             ->add('body')
             ->add('author')
             ->add('activeComment')
