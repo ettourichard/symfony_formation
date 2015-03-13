@@ -20,7 +20,7 @@
     <body>
         <div class="container" style="width: 700px;">
             <div style="text-align: center;margin: 40px;"><h1 style="font-size: 50px;">{% trans %}h1.homepage{% endtrans %}</h1>
-                <a href="{{ path('blog_index')}}">{% trans %}lien.homepage{% endtrans %}</a> - <a href="#">{% trans %}lien.search{% endtrans %}</a> - <a href="{{ path('blog_propose')}}">{% trans %}lien.propose{% endtrans %}</a>
+                <a href="{{ path('blog_index')}}">{% trans %}lien.homepage{% endtrans %}</a> - <a href="#" id="recherche-btn">{% trans %}lien.search{% endtrans %}</a> - <a href="{{ path('blog_propose')}}">{% trans %}lien.propose{% endtrans %}</a>
             </div>
             <div id="recherche-box" style="display: none;margin: auto;text-align: center;">
                 <form action="{{ path('search_article') }}" method="post" class="navbar-form" role="search">
