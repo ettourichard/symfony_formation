@@ -39,7 +39,7 @@
                 <target>Propose an article</target>
             </trans-unit>
             <trans-unit id="10">
-                <source>button.submit</source>
+                <source>bouton.submit</source>
                 <target>Submit</target>
             </trans-unit>
             <trans-unit id="11">
