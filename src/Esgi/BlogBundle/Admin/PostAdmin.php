@@ -18,13 +18,15 @@ class PostAdmin extends Admin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
+            ->with('General')
             ->add('title')
             ->add('body')
             ->add('author')
             ->add('category', 'sonata_type_model_autocomplete', array('property' => 'name'))
             ->add('activeComment')
-            ->add('isPublished')
-            ->add('file', 'file')
+            ->add('isPublished', 'checkbox', array('required' => false))
+            ->add('file', 'file', array('required' => false))
+            ->end()
         ;
     }
 
@@ -63,5 +65,21 @@ class PostAdmin extends Admin
             ->add('activeComment')
             ->add('category')
         ;
+    }
+
+    public function prePersist($product)
+    {
+        $this->saveFile($product);
+    }
+
+    public function preUpdate($product)
+    {
+        $this->saveFile($product);
+    }
+
+    public function saveFile($product)
+    {
+        $basepath = $this->getRequest()->getBasePath();
+        $product->upload($basepath);
     }
 }

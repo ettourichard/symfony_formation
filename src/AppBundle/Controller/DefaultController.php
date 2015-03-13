@@ -15,7 +15,7 @@ class DefaultController extends Controller
         return $this->redirect($this->generateUrl('blog_index'));
     }
 
-    /**
+    /*
      * @Route("/redirect-user", name="sonata_user_profile_edit")
      */
     /*public function redirectAction()
