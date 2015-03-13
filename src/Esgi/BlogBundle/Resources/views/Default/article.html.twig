@@ -22,8 +22,11 @@
                 <div id="comments">
                     <div id="commentForm" class="form-group">
                         {{form_start(commentForm)}}
-
-                            {{form_widget(commentForm.name, { 'attr': { 'value': app.user.username } })}}
+                            {% if is_granted("IS_AUTHENTICATED_FULLY") %}
+                                {{form_widget(commentForm.name, { 'attr': { 'value': app.user.username } })}}
+                            {% else %}
+                                {{form_widget(commentForm.name)}}
+                            {% endif %}
                             {{form_widget(commentForm.text)}}
 
                             {{form_errors(commentForm)}}
