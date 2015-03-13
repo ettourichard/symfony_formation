@@ -1,11 +1,11 @@
 {% extends '::base.html.twig' %}
 
 {% block title %}
-	Proposer un article
+	{% trans %}ajout.article{% endtrans %}
 {% endblock %}
 
 {% block body %}
-    <h1>{% trans %}Ajouter un article{% endtrans %} :</h1>
+    <h1>{% trans %}ajout.article{% endtrans %} :</h1>
 	{% for message in app.session.flashbag.get('success') %}
 		<p class="success" style="background-color: #afa">{{ message }} </p>
 	{% endfor %}

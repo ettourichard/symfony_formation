@@ -2,6 +2,8 @@ esgi_blog:
     resource: "@BlogBundle/Controller/"
     type:     annotation
     prefix:   /{_locale}
+    requirements:
+        _locale: fr|en|es
 
 home:
     resource: "@AppBundle/Controller/"

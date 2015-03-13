@@ -4,49 +4,44 @@
         <body>
             <trans-unit id="1">
                 <source>lien.homepage</source>
-                <target>Homepage</target>
+                <target>Página principal</target>
             </trans-unit>
             <trans-unit id="2">
                 <source>lien.search</source>
-                <target>Search</target>
+                <target>Buscar</target>
             </trans-unit>
             <trans-unit id="3">
                 <source>lien.propose</source>
-                <target>Propose</target>
+                <target>Proponer</target>
             </trans-unit>
             <trans-unit id="4">
                 <source>nom.blog</source>
-                <target>My super blog</target>
+                <target>Mi Súper Blog</target>
             </trans-unit>
             <trans-unit id="5">
                 <source>h1.homepage</source>
-                <target>MY SUPER BLOG</target>
+                <target>MI SÚPER BLOG</target>
             </trans-unit>
             <trans-unit id="6">
                 <source>titre.comments</source>
-                <target>Comments</target>
+                <target>Comentarios</target>
             </trans-unit>
             <trans-unit id="7">
                 <source>nocomment.message</source>
-                <target>No comment in this post</target>
+                <target>No hay comentarios en este post</target>
             </trans-unit>
             <trans-unit id="8">
                 <source>ajout.article</source>
-                <target>Add an article</target>
+                <target>Añadir un artículo</target>
             </trans-unit>
             <trans-unit id="9">
                 <source>article.propose</source>
-                <target>Propose an article</target>
+                <target>Proponer un artículo</target>
             </trans-unit>
             <trans-unit id="10">
                 <source>bouton.submit</source>
-                <target>Submit</target>
+                <target>Enviar</target>
             </trans-unit>
-            <trans-unit id="11">
-                <source>name.form</source>
-                <target>Your name</target>
-            </trans-unit>
-            
         </body>
     </file>
 </xliff>

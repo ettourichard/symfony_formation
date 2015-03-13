@@ -38,6 +38,14 @@
                 <source>article.propose</source>
                 <target>Proposer un article</target>
             </trans-unit>
+            <trans-unit id="10">
+                <source>bouton.submit</source>
+                <target>Soumettre</target>
+            </trans-unit>
+            <trans-unit id="11">
+                <source>name.form</source>
+                <target>Votre nom</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>
