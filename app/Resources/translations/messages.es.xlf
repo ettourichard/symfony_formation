@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file source-language="en" datatype="plaintext" original="messages.fr.xlf">
+        <body>
+            <trans-unit id="1">
+                <source>lien.homepage</source>
+                <target>Página principal</target>
+            </trans-unit>
+            <trans-unit id="2">
+                <source>lien.search</source>
+                <target>Buscar</target>
+            </trans-unit>
+            <trans-unit id="3">
+                <source>lien.propose</source>
+                <target>Proponer</target>
+            </trans-unit>
+            <trans-unit id="4">
+                <source>nom.blog</source>
+                <target>Mi Súper Blog</target>
+            </trans-unit>
+            <trans-unit id="5">
+                <source>h1.homepage</source>
+                <target>MI SÚPER BLOG</target>
+            </trans-unit>
+            <trans-unit id="6">
+                <source>titre.comments</source>
+                <target>Comentarios</target>
+            </trans-unit>
+            <trans-unit id="7">
+                <source>nocomment.message</source>
+                <target>No hay comentarios en este post</target>
+            </trans-unit>
+            <trans-unit id="8">
+                <source>ajout.article</source>
+                <target>Añadir un artículo</target>
+            </trans-unit>
+            <trans-unit id="9">
+                <source>article.propose</source>
+                <target>Proponer un artículo</target>
+            </trans-unit>
+            <trans-unit id="10">
+                <source>button.submit</source>
+                <target>Enviar</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>
