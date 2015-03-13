@@ -21,7 +21,14 @@
         <div class="container container-header">
             <div class="head-box">
                 <h1 style="font-size: 50px;">{% trans %}h1.homepage{% endtrans %}</h1>
-                <a href="{{ path('blog_index')}}">{% trans %}lien.homepage{% endtrans %}</a> - <a href="#" id="recherche-btn">{% trans %}lien.search{% endtrans %}</a> - <a href="{{ path('blog_propose')}}">{% trans %}lien.propose{% endtrans %}</a>
+                <a href="{{ path('blog_index')}}">{% trans %}lien.homepage{% endtrans %}</a> 
+                - <a href="#" id="recherche-btn">{% trans %}lien.search{% endtrans %}</a> 
+                - <a href="{{ path('blog_propose')}}">{% trans %}lien.propose{% endtrans %} </a>
+                -   {% if is_granted("IS_AUTHENTICATED_FULLY") %}
+                       <a href="{{ path('fos_user_security_logout')}}">{% trans %}lien.logout{% endtrans %} [{{app.user.username}}] </a>
+                    {% else %}
+                        <a href="{{ path('fos_user_security_login')}}">{% trans %}lien.login{% endtrans %} </a>
+                    {% endif %}
             </div>
         </div>
         <div id="recherche-box">

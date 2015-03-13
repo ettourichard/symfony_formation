@@ -94,6 +94,7 @@ sonata_user:
             controller: SonataAdminBundle:CRUD
             translation: SonataUserBundle
 
+
 sonata_block:
     default_contexts: [cms]
     blocks:

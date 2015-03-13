@@ -38,6 +38,18 @@
                 <source>article.propose</source>
                 <target>Propose an article</target>
             </trans-unit>
+            <trans-unit id="10">
+                <source>lien.login</source>
+                <target>Sign in</target>
+            </trans-unit>
+            <trans-unit id="11">
+                <source>lien.logout</source>
+                <target>Logout</target>
+            </trans-unit>
+            <trans-unit id="12">
+                <source>comment.activeOrNot</source>
+                <target>Comments are disabled on this page</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>
