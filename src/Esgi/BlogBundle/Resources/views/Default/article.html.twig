@@ -14,7 +14,7 @@
             </div>
         <section>
         <section>
-            <h3>Comments :</h3>
+            <h3>{% trans %}titre.comments{% endtrans %} :</h3>
 
 
 
@@ -38,7 +38,7 @@
                         </div>
                     {% endfor %}
                 {% else %}
-                    <p>No comment in this post</p>
+                    <p>{% trans %}nocomment.message{% endtrans %}</p>
                 {% endif %}
             </div>
         </section>

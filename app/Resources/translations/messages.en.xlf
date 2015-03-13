@@ -22,6 +22,22 @@
                 <source>h1.homepage</source>
                 <target>MY SUPER BLOG</target>
             </trans-unit>
+            <trans-unit id="6">
+                <source>titre.comments</source>
+                <target>Comments</target>
+            </trans-unit>
+            <trans-unit id="7">
+                <source>nocomment.message</source>
+                <target>No comment in this post</target>
+            </trans-unit>
+            <trans-unit id="8">
+                <source>ajout.article</source>
+                <target>Add an article</target>
+            </trans-unit>
+            <trans-unit id="9">
+                <source>article.propose</source>
+                <target>Propose an article</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

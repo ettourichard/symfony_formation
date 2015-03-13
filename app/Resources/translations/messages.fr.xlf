@@ -22,7 +22,22 @@
                 <source>h1.homepage</source>
                 <target>MON SUPER BLOG</target>
             </trans-unit>
-            
+            <trans-unit id="6">
+                <source>titre.comments</source>
+                <target>Commentaires</target>
+            </trans-unit>
+            <trans-unit id="7">
+                <source>nocomment.message</source>
+                <target>Pas de commentaire sur ce post</target>
+            </trans-unit>
+            <trans-unit id="8">
+                <source>ajout.article</source>
+                <target>Ajouter un article</target>
+            </trans-unit>
+            <trans-unit id="9">
+                <source>article.propose</source>
+                <target>Proposer un article</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>
