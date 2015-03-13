@@ -1,0 +1,12 @@
+{% extends '::base.html.twig' %}
+
+{% block title %}
+    Une erreur est survenue : {{ status_text }}
+{% endblock %}
+
+{% block body %}
+
+    <h1>Oups! Une erreur est survenue</h1>
+    <p>La page que vous recherchez n'existe pas. Vous pouvez retourner vers l'Accueil pour avoir la liste des actualités ou en chercher une à partir du lien Recherche.</p>
+
+{% endblock %}
