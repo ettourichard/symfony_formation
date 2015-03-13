@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
-    <file source-language="en" datatype="plaintext" original="navigation.fr.xlf">
+    <file source-language="en" datatype="plaintext" original="messages.fr.xlf">
         <body>
             <trans-unit id="1">
                 <source>lien.homepage</source>
@@ -38,6 +38,15 @@
                 <source>article.propose</source>
                 <target>Propose an article</target>
             </trans-unit>
+            <trans-unit id="10">
+                <source>button.submit</source>
+                <target>Submit</target>
+            </trans-unit>
+            <trans-unit id="11">
+                <source>name.form</source>
+                <target>Your name</target>
+            </trans-unit>
+            
         </body>
     </file>
 </xliff>
