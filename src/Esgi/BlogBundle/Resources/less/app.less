@@ -1,4 +1,27 @@
 body {
+
+    .container {
+
+        &.container-header {
+            width: 700px;
+            margin-bottom: 10px;
+
+            .head-box {
+                text-align: center;
+                margin: 40px;
+                margin-bottom: 10px;
+            }
+        }
+        &.container-body {
+            width: 700px;
+            margin-top: 20px;
+        }
+    }
+
+    .fa {
+        color: black;
+    }
+
     padding-top: 70px;
 
     #menu{
@@ -52,6 +75,21 @@ body {
     }
     textarea{
         resize:vertical;
+    }
+
+    .navigation {
+        text-align: center;
+    }
+
+    #recherche-box {
+        display: none;
+        position: relative;
+        margin: auto;
+        text-align: center;
+        padding: 20px;
+        border-top: 1px solid #ccc;
+        border-bottom: 1px solid #ccc;
+        background: #E5E5E5;
     }
 
 }

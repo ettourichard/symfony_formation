@@ -3,6 +3,11 @@ esgi_blog:
     type:     annotation
     prefix:   /{_locale}
 
+home:
+    resource: "@AppBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
 app:
     resource: @AppBundle/Controller/
     type: annotation
