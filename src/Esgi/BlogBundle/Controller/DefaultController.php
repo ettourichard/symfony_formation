@@ -15,7 +15,6 @@ use Esgi\BlogBundle\Form\AddCommentType;
 
 class DefaultController extends Controller
 {
-
     /**
      * @Route("/blog", name="blog_index")
      * @Template()
@@ -84,6 +83,9 @@ class DefaultController extends Controller
             $form->handleRequest($request);
             if ($form->isValid()) {
                 $em = $this->getDoctrine()->getManager();
+
+                $post->upload();
+
                 $em->persist($post);
                 $em->flush();
 

@@ -22,6 +22,7 @@ class ProposePostType extends AbstractType
                     'multiple' => false,
                     'attr' => array('class' => 'form-control'),
                 ))
+                ->add('file')
                 ->add('save', 'submit', array('label' => 'Propose',
                     'attr' => array('class' => 'btn btn-success'),
                 ));
