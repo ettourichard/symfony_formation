@@ -17,30 +17,33 @@
             <h3>{% trans %}titre.comments{% endtrans %} :</h3>
 
 
+            {% if post.activeComment %}
+                <div id="comments">
+                    <div id="commentForm" class="form-group">
+                        {{form_start(commentForm)}}
 
-            <div id="comments">
-                <div id="commentForm" class="form-group">
-                    {{form_start(commentForm)}}
+                            {{form_widget(commentForm.name, { 'attr': { 'value': app.user.username } })}}
+                            {{form_widget(commentForm.text)}}
 
-                        {{form_widget(commentForm.name)}}
-                        {{form_widget(commentForm.text)}}
-
-                        {{form_errors(commentForm)}}
-                    {{form_end(commentForm)}}
-                </div>
-                {% if post.comments %}
-                    {% for comment in post.comments %}
-                        <div class="comment">
-                            <div class="details">
-                                <span class="author">{{comment.name}}</span> <span class="date">{{ comment.createdAt|date("D j F Y H:i:s") }}</span>
+                            {{form_errors(commentForm)}}
+                        {{form_end(commentForm)}}
+                    </div>
+                    {% if post.comments|length > 0 %}
+                        {% for comment in post.comments %}
+                            <div class="comment">
+                                <div class="details">
+                                    <span class="author">{{comment.name}}</span> <span class="date">{{ comment.createdAt|date("D j F Y H:i:s") }}</span>
+                                </div>
+                                <p>{{comment.text}}</p>
                             </div>
-                            <p>{{comment.text}}</p>
-                        </div>
-                    {% endfor %}
-                {% else %}
-                    <p>{% trans %}nocomment.message{% endtrans %}</p>
-                {% endif %}
-            </div>
+                        {% endfor %}
+                    {% else %}
+                        <p class="bg_warning">{% trans %}nocomment.message{% endtrans %}</p>
+                    {% endif %}
+                </div>
+            {% else %}
+                <p class="bg-warning">{% trans %}comment.activeOrNot{% endtrans %}</p>
+            {% endif %}
         </section>
 
     </article>

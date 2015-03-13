@@ -43,6 +43,18 @@
                 <target>Soumettre</target>
             </trans-unit>
             <trans-unit id="11">
+                <source>lien.login</source>
+                <target>Se connecter</target>
+            </trans-unit>
+            <trans-unit id="12">
+                <source>lien.logout</source>
+                <target>Se déconnecter</target>
+            </trans-unit>
+             <trans-unit id="13">
+                <source>comment.activeOrNot</source>
+                <target>Les commentaires ont été désactivés sur cet article.</target>
+            </trans-unit>
+            <trans-unit id="14">
                 <source>name.form</source>
                 <target>Votre nom</target>
             </trans-unit>

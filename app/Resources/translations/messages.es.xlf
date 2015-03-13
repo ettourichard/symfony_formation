@@ -42,6 +42,22 @@
                 <source>bouton.submit</source>
                 <target>Enviar</target>
             </trans-unit>
+            <trans-unit id="11">
+                <source>lien.login</source>
+                <target>conectar</target>
+            </trans-unit>
+            <trans-unit id="12">
+                <source>lien.logout</source>
+                <target>desconectar</target>
+            </trans-unit>
+             <trans-unit id="13">
+                <source>comment.activeOrNot</source>
+                <target>Los comentarios han sido deshabilitados en esta página</target>
+            </trans-unit>
+            <trans-unit id="14">
+                <source>name.form</source>
+                <target>Su nombre</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>
